@@ -1,5 +1,6 @@
 
 import './App.css';
+import Follower from './components/Follower/Integrated'
 import Setting from './components/Setting/Integrated'
 import PWResetS from './components/PWResetS/Integrated'
 import BadgeRq from './components/BadgeRq/Integrated'
@@ -12,7 +13,12 @@ function App() {
 
 <>
 
-<Link to ="/setting">Setting으로 이동</Link>
+<Follower />
+
+
+
+{/* <Link to ="/setting">Setting으로 이동</Link>
+
     
 
     <Routes>
@@ -20,7 +26,7 @@ function App() {
       <Route path="/setting/pw" element={<PWResetS />} />
       <Route path="/setting/bg" element={<BadgeRq />} />
       <Route path="/setting/tag" element={<EditTag />} />
-    </Routes>
+    </Routes> */}
 
     </>
 
