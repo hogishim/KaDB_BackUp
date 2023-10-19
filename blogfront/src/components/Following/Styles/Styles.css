@@ -1,0 +1,56 @@
+.fr-pop-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+
+.follower-box {
+
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 60vh;
+  text-align: center;
+  background-color: snow;
+  border: 2px solid rgb(40, 43, 243);
+  border-radius: 20px;
+  overflow-y: auto;
+
+
+}
+
+.follower-container {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 92%;
+  height: 10%;
+
+
+
+}
+
+.img-cont {
+
+  flex-grow: 20;
+
+}
+
+.name-cont {
+
+  flex-grow: 60;
+
+}
+
+
+
+.img-cont img {
+
+  width: 50px;
+  border-radius: 50%;
+
+}

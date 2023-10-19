@@ -1,11 +1,14 @@
 
 import './App.css';
+import AddCity from './components/EnrollPost/AddCity/Integrated'
+import Following from './components/Following/Integrated'
 import Follower from './components/Follower/Integrated'
 import Setting from './components/Setting/Integrated'
 import PWResetS from './components/PWResetS/Integrated'
 import BadgeRq from './components/BadgeRq/Integrated'
 import EditTag from './components/EditTag/Integrated'
 import { Routes, Route, Link } from 'react-router-dom'
+import AddPlace from './components/EnrollPost/AddPlace/Integrated'
 
 
 function App() {
@@ -13,8 +16,11 @@ function App() {
 
 <>
 
-<Follower />
-
+<AddPlace />
+{/* <AddCity /> */}
+{/* 
+<Following /> */}
+{/* <Follower /> */}
 
 
 {/* <Link to ="/setting">Setting으로 이동</Link>

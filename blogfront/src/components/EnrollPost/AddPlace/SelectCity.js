@@ -1,0 +1,46 @@
+import styled from 'styled-components'
+
+let Select = styled.select`
+
+height: 50px;
+padding: 5px;
+width: 200px;
+border-radius: 5px;
+margin-right: 10px; 
+`
+
+
+function SelectCity(props){
+
+    const handleChange = (e) =>{
+
+
+
+    }
+
+    return(
+
+        <Select onChange={handleChange}>
+
+            {props.city.map(function(a){
+
+                if(a.n == props.nation){
+
+                return <option>{a.city}</option>
+                }
+
+            })}
+
+
+
+        </Select>
+
+
+
+
+    )
+
+
+
+}
+export default SelectCity;
