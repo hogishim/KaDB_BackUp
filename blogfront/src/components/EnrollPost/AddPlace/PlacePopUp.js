@@ -30,22 +30,39 @@ let CityBox = styled.div`
 function PlacePopUp(){
 
     let [nat, setNat] = useState('영국')
+    let [ct, setCt] = useState('리버풀')
+    let [sr, setSr] = useState('')
 
     const handleNation = (nation)=>{
 
         setNat(nation)
+        setCt("")
         
 
     }
+
+    const handleCity = (city) =>{
+
+        setCt(city)
+
+    }
+
+    const handleSearch = (searched) => {
+
+        setSr(searched)
+        console.log(searched)
+
+    }
+
 
     return (
         <Container>
             <CityBox>
                 <h3>장소 추가하기</h3>
                 <SelectNation nation={nation} onNationChange={handleNation}/>
-                <SelectCity nation={nat} city={city}/>
-                <SearchBar />
-                <PlaceContainer />
+                <SelectCity nation={nat} city={city} onCityChange={handleCity}/>
+                <SearchBar onSearchChange={handleSearch}/>
+                <PlaceContainer city={ct}/>
             </CityBox>
         </Container>
     );

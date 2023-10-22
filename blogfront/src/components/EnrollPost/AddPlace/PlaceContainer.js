@@ -8,12 +8,12 @@ height: 65%;
 overflow-y: auto;
 `
 
-function PlaceContainer(){
+function PlaceContainer(props){
 
     return(
 
         <Container>
-            <PlaceBox />
+            <PlaceBox city={props.city} />
 
 
         </Container>

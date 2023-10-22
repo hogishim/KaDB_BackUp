@@ -14,6 +14,8 @@ function SelectCity(props){
 
     const handleChange = (e) =>{
 
+        const selected = e.target.value;
+        props.onCityChange(selected);
 
 
     }
