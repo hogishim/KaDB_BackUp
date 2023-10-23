@@ -9,9 +9,10 @@ padding: 5px;
 width: 200px;
 border-radius: 5px;
 margin-right: 10px; 
-
+border: 0;
 
 `
+
 
 function SelectionBox(props) {
 

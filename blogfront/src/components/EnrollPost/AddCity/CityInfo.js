@@ -1,20 +1,21 @@
 import styled from 'styled-components';
+import { useState } from 'react';
 
 let CityIfBox = styled.div`
-    width: 22vw;
+    width: 20rem;
     height: 200px;
     border: 0;
     border-radius: 10px;
     margin: 10px;
     padding: 10px;
     background: snow;
-    &:hover{
 
-        background-color: #F2F2F2;
+    ${(props) =>
+        props.isSelected &&
+        `
+        background-color: #E8F5FF;
+    `}
 
-
-
-}
 `;
 
 let InfoContainer = styled.div`
@@ -30,18 +31,31 @@ border-top: 1px solid black;
 text-align: left;
 
 
+
+
 `
 
 function CityInfo(props) {
 
-    let c_info = props.info
+    let c_info = props.info;
+    const [selectedIdx, setSelectedIdx] = useState("");
+
+    const handleBoxClick = (idx) => {
+        if (selectedIdx === idx) {
+            setSelectedIdx(null);
+        } else {
+            setSelectedIdx(idx); 
+        }
+    };
 
     return (
         <InfoContainer>
-            {c_info.map(function (a) {
+            {c_info.map(function (a, idx) {
                 if (props.nation === a.nat) {
                     return (
-                        <CityIfBox key={a.city}>
+                        <CityIfBox isSelected={idx === selectedIdx}
+                        onClick={() => handleBoxClick(idx)}
+                        key={idx}>
                             <h3>{a.city}</h3>
                             <Detail>
                                 <h5>{a.place1}</h5>

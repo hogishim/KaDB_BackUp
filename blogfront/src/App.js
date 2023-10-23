@@ -9,14 +9,15 @@ import BadgeRq from './components/BadgeRq/Integrated'
 import EditTag from './components/EditTag/Integrated'
 import { Routes, Route, Link } from 'react-router-dom'
 import AddPlace from './components/EnrollPost/AddPlace/Integrated'
-
+import EnrollPlace from './components/EnrollPost/EnrollPlace/Integrated'
 
 function App() {
   return (
 
 <>
 
-<AddPlace />
+<EnrollPlace />
+{/* <AddPlace /> */}
 {/* <AddCity /> */}
 {/* 
 <Following /> */}

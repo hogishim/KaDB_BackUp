@@ -4,8 +4,10 @@ let Container = styled.div`
 
 background-color: snow;
 width: 100%;
-height: 65%;
+height: 22rem;
 overflow-y: auto;
+
+
 `
 
 function PlaceContainer(props){
@@ -13,7 +15,7 @@ function PlaceContainer(props){
     return(
 
         <Container>
-            <PlaceBox city={props.city} />
+            <PlaceBox city={props.city} place={props.place}/>
 
 
         </Container>

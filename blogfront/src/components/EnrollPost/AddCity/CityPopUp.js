@@ -4,6 +4,8 @@ import SearchBar from './SearchBar';
 import CityInfo from './CityInfo';
 import { useState } from 'react';
 import c_info from './TempCity';
+import Button from './Button'
+import img from './Source/search.png'
 
 let Container = styled.div`
     display: flex;
@@ -15,14 +17,61 @@ let Container = styled.div`
 let CityBox = styled.div`
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 45rem;
     height: 60vh;
     text-align: center;
-    background-color: #567ace;
+    background-color: lavenderblush;
     border: 0;
     border-radius: 20px;
-    overflow-y: auto;
+    
+    box-shadow: 5px 5px 5px 5px grey;
 `;
+
+let CityContainer = styled.div`
+
+height: 40vh;
+overflow-y: auto;
+background-color: 	#F9FFFF;
+`
+
+let HR = styled.div`
+
+border-bottom: 1px solid black;
+
+`
+
+let HeaderBox = styled.div`
+    display: flex;
+    height: 2.5rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+
+`
+let SelectionContainer = styled.div`
+
+padding-left: 15px;
+padding-bottom: 15px;
+display: flex;
+
+
+`
+
+let Img = styled.img`
+
+height: 30px;
+
+`
+let SearchContainer = styled.div`
+
+width: 250px;
+display: flex;
+background-color: white;
+justify-content: center;
+align-items: center;
+
+`
 
 function CityPopUp() {
     const [nation, setNation] = useState('영국');
@@ -37,18 +86,27 @@ function CityPopUp() {
         setSearchC(search);
 
         const filteredData = c_info.filter(item => item.city.includes(search));
-        
+
         setInfo(filteredData);
     };
 
     return (
         <Container>
             <CityBox>
-                <h3>방문도시 추가하기</h3>
-                <SelectionBox onNationChange={handleNationChange} />
-                <SearchBar onSearchChange={handleSearchBar} search={searchC} />
-                {/* CityInfo 컴포넌트에 필터링된 도시 데이터 전달 */}
-                <CityInfo info={info} nation={nation} />
+                <HeaderBox>도시 추가하기</HeaderBox>
+                <SelectionContainer>
+                    <SelectionBox onNationChange={handleNationChange} />
+                    <SearchContainer>
+                        <SearchBar onSearchChange={handleSearchBar} search={searchC} />
+                        <Img src={img} />
+                    </SearchContainer>
+                </SelectionContainer>
+                <HR />
+                <CityContainer>
+                    <CityInfo info={info} nation={nation} />
+                </CityContainer>
+                <HR />
+                <Button colour="#ffa0af" text="제출하기" />
             </CityBox>
         </Container>
     );

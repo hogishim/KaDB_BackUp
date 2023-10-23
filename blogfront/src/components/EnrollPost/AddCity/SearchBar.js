@@ -8,6 +8,7 @@ padding: 5px;
 width: 300px;
 border-radius: 5px;
 border: 0;
+outline: none;
 
 `
 

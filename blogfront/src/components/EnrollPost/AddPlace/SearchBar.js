@@ -2,12 +2,15 @@ import styled from 'styled-components'
 
 let Search = styled.input`
 
-
-
-
+height: 30px;
+padding: 5px;
+width: 200px;
+border-radius: 5px;
+border: 0;
+background-color: white;
+outline: none;
 
 `
-
 
 
 
