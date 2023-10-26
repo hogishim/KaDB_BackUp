@@ -1,4 +1,4 @@
-import FollowerPopUp from "./FollowerPopUp";
+import FollowerPopUp from "./FollowingPopUp";
 import TempBar from "./TempBar";
 
 function Integrated() {

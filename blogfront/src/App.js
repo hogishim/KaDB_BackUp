@@ -31,12 +31,19 @@ function App() {
         <Route path="/setting/pw" element={<PWResetS />} />
         <Route path="/setting/bg" element={<BadgeRq />} />
         <Route path="/setting/tag" element={<EditTag />} />
+        <Route path="follower" element={<Follower />} />
+        <Route path="following" element={<Following />} />
+
       </Routes>
 
 
       <A href="/setting">Setting으로 이동</A>
       <br />
       <A href="/popup">팝업창으로 이동</A>
+      <br />
+      <A href="/follower">팔로어 확인으로 이동</A>
+      <br />
+      <A href="/following">팔로잉 확인으로 이동</A>
 
     </>
 

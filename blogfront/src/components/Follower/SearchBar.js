@@ -1,39 +1,22 @@
-import './Styles/Styles.css'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
-let SearchBar = styled.input`
+const Input = styled.input`
+    width: 30vw;
+    height: 4.5vh;
+    border-radius: 6px;
+    border: 0;
+    outline: none;
+`;
 
-width: 80%;
-padding: 10px;
-border-radius: 6px;
-
-`
-
-
-
-function searchBar({onSearchChange}){
-
+function SearchBar({ value, onChange }) {
     const handleSearch = (event) => {
         const searchTerm = event.target.value;
-        onSearchChange(searchTerm);
+        onChange(searchTerm);
     };
 
-
-return(
-
-
-
-
-    <>
-    
-    <SearchBar type="text" placeholder="팔로어를 검색" onChange={handleSearch}/>
-    
-    
-    </>
-
-
-)
-
-
+    return <Input type="text" placeholder="팔로워를 검색하세요"
+    value={value} onChange={handleSearch} />;
 }
-export default searchBar;
+
+export default SearchBar;

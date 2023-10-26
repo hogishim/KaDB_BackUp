@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import SearchBar from './SearchBar';
-import FollowerComponent from './FollowerComponent';
+import FollowingComponent from './FollowingComponent';
 import data from './TempData';
 import { updateTempData } from './TempData';
 import img1 from './Source/search.png';
@@ -66,7 +66,7 @@ const Img2 = styled.img`
     cursor: pointer;
 `;
 
-function FollowerPopUp() {
+function FollowingPopUp() {
     const [userData, setUserData] = useState([...data]);
     const [search, setSearch] = useState('');
 
@@ -91,7 +91,7 @@ function FollowerPopUp() {
             <Container>
                 <FollowerBox>
                     <HeaderContainer>
-                        <h3>팔로워 리스트</h3>
+                        <h3>팔로잉중 사용자 리스트</h3>
                         <SearchBox>
                             <Img src={img1} />
                             <SearchBar value={search} onChange={handleSearchChange} />
@@ -99,7 +99,7 @@ function FollowerPopUp() {
                         </SearchBox>
                     </HeaderContainer>
                     <FollowerComponentContainer>
-                        <FollowerComponent data={userData} onButtonClick={handleBlockUser} />
+                        <FollowingComponent data={userData} onButtonClick={handleBlockUser} />
                     </FollowerComponentContainer>
                 </FollowerBox>
             </Container>
@@ -107,4 +107,4 @@ function FollowerPopUp() {
     );
 }
 
-export default FollowerPopUp;
+export default FollowingPopUp;
