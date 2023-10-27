@@ -6,28 +6,28 @@ import styled, { keyframes } from 'styled-components'
 
 
 const anim1 = keyframes`
-  0% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(30deg);
-  }
-  75% {
-    transform: rotate(-30deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
+    0% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(30deg);
+    }
+    75% {
+      transform: rotate(-30deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
 `;
 
 let LeftIcon = styled.div`
 
-float: left;
-width: 20%;
-height: 100%;   
-display: flex;
-align-items: center;
-justify-content: center;
+    float: left;
+    width: 20%;
+    height: 100%;   
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 `
 let RightText = styled.div`
@@ -43,7 +43,7 @@ let RightText = styled.div`
 `
 let ClickSettings = styled.div`
 
-margin-top: 1%;
+    margin-top: 1%;
     width: 100%;
     height: 30%;
 

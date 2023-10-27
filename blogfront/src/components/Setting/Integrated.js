@@ -1,5 +1,5 @@
 import SettingBox from './SettingBox'
-import './Styles/Styles.css'
+
 import TempBar from './TempBar';
 
 function Integrated(){

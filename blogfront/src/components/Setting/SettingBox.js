@@ -14,7 +14,7 @@ let Container = styled.div`
 let ContainerBox = styled.div`
 
 
-    width: 50%;
+    width: 50vw;
     height: 60vh;
     width: 70vh;
     text-align: center;

@@ -4,6 +4,7 @@ import img1 from './temp1.png'
 
     let follower_data = [
 
+        {img: img1, name: ' 소사'}, 
         {img: img1, name: '주키치'}, 
         {img: img1, name: '리즈'},  
         {img: img1, name: '봉중근'}, 
