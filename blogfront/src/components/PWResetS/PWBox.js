@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import Button from './Button';
 import PutPW from './PutPW';
 import pwImg from './Source/lock.png'
+import settingImg from '../Setting/Source/settings.png'
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 let Container = styled.div`
 
@@ -37,7 +39,7 @@ flex-grow: 10;
 justify-content: center;
 width: 100%;
 display: flex;
-flex-direction: column;
+flex-direction: row;
 
 
 `
@@ -113,6 +115,33 @@ align-items: center;
 justify-content: center;
 
 `
+let ImgBox = styled.div`
+
+flex-grow: 3;
+display: flex;
+align-items: center;
+justify-content: center;
+
+`
+
+let BackImg = styled.img`
+
+width: 50px;
+height: 50px;
+
+
+
+`
+let H = styled.div`
+
+flex-grow: 7;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 20px;
+
+
+`
 
 function PWBox() {
 
@@ -126,9 +155,10 @@ function PWBox() {
     let [msg2, setMsg2] = useState();
     let [msg3, setMsg3] = useState();
 
-    const [boxVisiblity, setBoxVisibility] = useState(false);
-    const [btnVisibility, setBtnVisbility] = useState(false);
+    let [boxVisiblity, setBoxVisibility] = useState(false);
+    let [btnVisibility, setBtnVisbility] = useState(false);
 
+    const navi = useNavigate();
 
 
     const handleChange1 = (pw) => {
@@ -201,8 +231,10 @@ function PWBox() {
 
 
                     <HeaderContainer>
-                        <h3>비밀번호 재설정</h3>
-     
+                        <H>비밀번호 재설정</H>
+                        <ImgBox>
+                        <BackImg src={settingImg} onClick={()=>{navi("/setting")}}/>
+                        </ImgBox>
                     </HeaderContainer>
 
                     <PWBoxContainer>

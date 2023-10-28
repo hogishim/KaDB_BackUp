@@ -1,8 +1,11 @@
 
 import InputBox from './InputBox';
 
+
+import settingImg from '../Setting/Source/settings.png'
 import SubBtn from './SubBtn';
 import styled from 'styled-components'
+import { useNavigate } from 'react-router-dom';
 
 let Container = styled.div`
 
@@ -25,8 +28,48 @@ let SettingBox = styled.div`
 
 `
 
+let ImgBox = styled.div`
+
+flex-grow: 3;
+display: flex;
+align-items: center;
+justify-content: center;
+
+`
+
+let BackImg = styled.img`
+
+width: 50px;
+height: 50px;
+
+
+
+`
+let H = styled.div`
+
+flex-grow: 7;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 20px;
+
+
+`
+let HeaderContainer = styled.div`
+
+flex-grow: 10;
+justify-content: center;
+width: 100%;
+display: flex;
+flex-direction: row;
+
+
+`
+
 
 function EditTag() {
+
+    const navi = useNavigate();
 
 
     return (
@@ -36,7 +79,12 @@ function EditTag() {
                 {/* setting할 수 있는 메뉴를 불러오는데 props를 이용하여 설정 */}
                 <SettingBox>
 
-                    <h3>선호태그를 수정하세요!!</h3>
+                <HeaderContainer>
+                        <H>비밀번호 재설정</H>
+                        <ImgBox>
+                        <BackImg src={settingImg} onClick={()=>{navi("/setting")}}/>
+                        </ImgBox>
+                    </HeaderContainer>
                     <InputBox />
                     
                     <SubBtn />
