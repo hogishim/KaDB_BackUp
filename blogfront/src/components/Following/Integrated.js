@@ -6,8 +6,6 @@ function Integrated() {
     return (
 
         <>
-
-            <TempBar />
             <FollowerPopUp />
 
 

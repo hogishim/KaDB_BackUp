@@ -7,7 +7,6 @@ return(
 
 <>
 
-    <TempBar />
     <EditTag />
 
 

@@ -1,6 +1,6 @@
 import ClickSetting from './ClickSetting';
 import styled from 'styled-components'
-
+import img1 from './Source/bgimg.png'
 
 let Container = styled.div`
 
@@ -8,6 +8,9 @@ let Container = styled.div`
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100vw;
+    background-image: url(${img1});
+    background-size: cover; 
 
 
 `

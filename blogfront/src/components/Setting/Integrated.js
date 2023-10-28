@@ -10,7 +10,7 @@ function Integrated(){
         <>
 
         {/* navigation bar가 왼쪽에 위치, Settingbox가 오른쪽에 위치 */}
-        <TempBar />
+            
         <SettingBox />
 
         </>
