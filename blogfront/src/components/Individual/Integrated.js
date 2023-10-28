@@ -9,7 +9,6 @@ import Sort from "./sort";
 
 const IndividualDiv = styled.div`
     margin : 5rem;
-    background-color: #F2F2F2;
 `
 const ProfileIntroduceDiv = styled.div`
     display: flex;

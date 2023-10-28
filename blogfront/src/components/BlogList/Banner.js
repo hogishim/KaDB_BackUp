@@ -6,7 +6,6 @@ const BannerDiv = styled.div`
     margin-top : 0.7rem;
     margin-bottom : 0.7rem;
     padding : 0.5rem;
-    width:100%;
     background-color:white;
 `
 const CityDiv = styled.div`

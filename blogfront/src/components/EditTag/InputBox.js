@@ -17,7 +17,7 @@ function InputBox(){
 
 
     return <Input type="text"
-    placeHolder="직접 나의 태그를 작성해보세요 !!!#힐링 #온천 #맛집"/>
+    placeHolder="직접 나의 태그를 작성해보세요!!!   #힐링 #온천 #맛집"/>
 
 
 

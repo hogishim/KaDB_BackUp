@@ -6,6 +6,7 @@ import data from './TempData';
 import { updateTempData } from './TempData';
 import img1 from './Source/search.png';
 import img2 from './Source/close.png';
+import bg from './Source/bgimg.png'
 
 const Container = styled.div`
     display: flex;
@@ -13,6 +14,8 @@ const Container = styled.div`
     align-items: center;
     height: 100vh;
     width: 100vw;
+    background-image: url(${bg});
+    background-size: cover; 
 `;
 
 const FollowerBox = styled.div`

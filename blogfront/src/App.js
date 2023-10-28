@@ -14,13 +14,19 @@ import Main from './components/Main/Integrated';
 
 const AppDiv = styled.div`
   display: flex;
+  background-color: #f2f2f2;
 `
-
+const OutletDiv = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+`
 function App() {
   return (
     <AppDiv>
       <NavBar/>
-      <Outlet/>
+      <OutletDiv>
+        <Outlet/>
+      </OutletDiv>
     </AppDiv>
   );
 }

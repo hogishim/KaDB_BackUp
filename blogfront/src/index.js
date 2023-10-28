@@ -28,9 +28,12 @@ root.render(
       {/* NavBar 필요 있는 것들 */}
       <Routes>
         <Route path="/" element={<App />}>
-          <Route path="main" element={<Main />} />
-          <Route path="bloglist" element={<BlogList />} />
-          <Route path="individual" element={<Individual />} />
+          <Route path="main" element={<Main/>}/>
+          <Route path="bloglist" element={<BlogList/>}/>
+          <Route path="individual" element={<Individual/>}/>
+          <Route path="placeinfo" element={<PlaceInfo/>}/>
+          <Route path="bloghome" element={<IndividualBlogHome/>}/>
+          <Route path="blogpost" element={<IndividualBlogPost/>}/>
           <Route path="setting" element={<Setting />} />
           <Route path="follower" element={<Follower />} />
           <Route path="following" element={<Following />} />

@@ -1,14 +1,12 @@
 
 import InputBox from './InputBox';
-
-
-import settingImg from '../Setting/Source/settings.png'
 import SubBtn from './SubBtn';
 import styled from 'styled-components'
-import { useNavigate } from 'react-router-dom';
+
 
 import img from './Source/bgimg.png'
 import MappingContainer from '../Setting/MappingContainer';
+import BackToSet from '../Setting/BackToSet';
 
 let Container = styled.div`
 
@@ -43,14 +41,6 @@ justify-content: center;
 
 `
 
-let BackImg = styled.img`
-
-width: 50px;
-height: 50px;
-
-
-
-`
 let H = styled.div`
 
 flex-grow: 7;
@@ -72,17 +62,12 @@ flex-direction: row;
 
 `
 
-let InputContainer = styled.div`
 
-height: 30vh;
-
-
-`
 
 
 function EditTag() {
 
-    const navi = useNavigate();
+
 
 
     return (
@@ -91,17 +76,17 @@ function EditTag() {
             <Container>
                 {/* setting할 수 있는 메뉴를 불러오는데 props를 이용하여 설정 */}
 
-                
+
                 <SettingBox>
-                <MappingContainer />
-                <HeaderContainer>
+                    <MappingContainer />
+                    <HeaderContainer>
                         <H>선호 태그 재설정</H>
                         <ImgBox>
-                        <BackImg src={settingImg} onClick={()=>{navi("/setting")}}/>
+                            <BackToSet />
                         </ImgBox>
                     </HeaderContainer>
                     <InputBox />
-                    
+
                     <SubBtn />
 
                 </SettingBox>

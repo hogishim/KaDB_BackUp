@@ -7,7 +7,8 @@ const TotalListDiv = styled.div`
     border-radius : 5px;
     padding : 1.5rem;
     margin-top : 0.7rem;
-    background-color : white
+    background-color : white;
+    width: 90%;
 `
 const ListDiv = styled.div`
     display : flex;

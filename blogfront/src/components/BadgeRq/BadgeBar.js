@@ -1,12 +1,10 @@
-
 import img1 from './Source/ads.png'
 import img2 from './Source/inf.png'
-import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
-import settingImg from '../Setting/Source/settings.png'
 import img from './Source/bgimg.png'
 import MappingContainer from '../Setting/MappingContainer'
-
+import BadgeBox from './BadgeBox'
+import BackToSet from '../Setting/BackToSet'
 
 let Container = styled.div`
   display: flex;
@@ -51,62 +49,7 @@ display: flex;
 
 
 `
-let AddBadge = styled.div`
 
-display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 12vw;
-  height: 12vw;
-  background-color: snow;
-  border-radius: 50%;
-  margin: 3px;
-
-
-`
-let InBadge = styled.div`
-
-display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 12vw;
-  height: 12vw;
-  background-color: snow;
-  border-radius: 50%;
-  margin: 3px;
-
-
-
-`
-
-
-let ImgBox = styled.div`
-
-width: 70%;
-  height: 70%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-
-`
-let Image = styled.img`
-
-width: 40%;
-  height: auto;
-  margin: 10px;
-
-&:hover{
-
-    width: 50%;
-  height: auto;
-  margin: 10px;
-  transition: all 1s;
-
-}
-
-
-`
 
 let ImgBox2 = styled.div`
 
@@ -117,14 +60,6 @@ justify-content: center;
 
 `
 
-let BackImg = styled.img`
-
-width: 50px;
-height: 50px;
-
-
-
-`
 let H = styled.div`
 
 flex-grow: 7;
@@ -139,7 +74,7 @@ font-size: 20px;
 
 function BadgeBar() {
 
-    let navi = useNavigate();
+
 
     return (
 
@@ -154,22 +89,12 @@ function BadgeBar() {
                   
                         <H>Badge 신청</H>
                         <ImgBox2>
-                        <BackImg src={settingImg} onClick={()=>{navi("/setting")}}/>
+                       <BackToSet />
                         </ImgBox2>
                     </HeaderContainer>
                     <RequestBadge>
-                        <AddBadge>
-                            <ImgBox>
-                                <Image src={img1} onClick={() => 
-                                    { navi('/setting') }} />
-                            </ImgBox>
-                        </AddBadge>
-                        <InBadge>
-                            <ImgBox>
-                                <Image src={img2} onClick={() => 
-                                    { navi('/setting') }} />
-                            </ImgBox>
-                        </InBadge>
+                      <BadgeBox img={img1}/>
+                      <BadgeBox img={img2}/>
                     </RequestBadge>
                 </SettingBox>
 

@@ -5,10 +5,11 @@ let Button = styled.button`
 
 padding: 10px;
   margin-top: 3%;
-  width: 50%;
+  width: 15vw;
   border: 0px;
   border-radius: 5px;
-  background-color: #46AA46;
+  background-color: #0A6EFF;
+  color: snow;
 
 `
 

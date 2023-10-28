@@ -9,7 +9,6 @@ const BlogListDiv = styled.div`
     flex-direction : column;
     align-items : center;
     margin-top : 3rem;
-    background-color:#F2F2F2;
 `
 
 function BlogList(){

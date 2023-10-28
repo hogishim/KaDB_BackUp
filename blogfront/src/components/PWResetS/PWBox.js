@@ -2,12 +2,10 @@ import styled from 'styled-components';
 import Button from './Button';
 import PutPW from './PutPW';
 import pwImg from './Source/lock.png'
-import settingImg from '../Setting/Source/settings.png'
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import img1 from './Source/bgimg.png'
 import MappingContainer from '../Setting/MappingContainer';
-
+import bgimg1 from '../Setting/Source/bgimg1.png'
+import BackToSet from '../Setting/BackToSet';
 
 let Container = styled.div`
 
@@ -16,11 +14,11 @@ let Container = styled.div`
     align-items: center;
     height: 100vh;
     width: 100vw;
-    background-image: url(${img1});
+    background-image: url(${bgimg1});
     background-size: cover; 
 
-`
 
+`
 
 
 let PWContainer = styled.div`
@@ -112,7 +110,7 @@ transition: all 1s;
 
 `
 
-let ButtonBox= styled.div`
+let ButtonBox = styled.div`
 
 display: ${(props) => (props.btnVisibility ? 'flex' : 'none')};
 
@@ -130,14 +128,7 @@ justify-content: center;
 
 `
 
-let BackImg = styled.img`
 
-width: 50px;
-height: 50px;
-
-
-
-`
 let H = styled.div`
 
 flex-grow: 7;
@@ -166,18 +157,18 @@ function PWBox() {
     let [boxVisiblity, setBoxVisibility] = useState(false);
     let [btnVisibility, setBtnVisbility] = useState(false);
 
-    const navi = useNavigate();
+
 
 
     const handleChange1 = (pw) => {
 
-        if(curPW != pw){
+        if (curPW != pw) {
 
             setMsg1("기존 비밀번호와 일치하지 않습니다")
-            
+
 
         }
-        else if(curPW == pw){
+        else if (curPW == pw) {
 
             setMsg1("")
             setBoxVisibility(true)
@@ -187,11 +178,11 @@ function PWBox() {
 
     }
 
-    const handleChange2 =(pw) =>{
+    const handleChange2 = (pw) => {
 
         const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-])[A-Za-z\d!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]{8,}$/;
         setMsg3("")
-    
+
         if (regex.test(pw)) {
             setMsg2("조건을 만족합니다")
             setPW2(pw)
@@ -200,10 +191,10 @@ function PWBox() {
             setTimeout(() => {
                 setMsg2("")
             }, 5000);
-            
+
 
         }
-        if (!regex.test(pw)){
+        if (!regex.test(pw)) {
             setMsg2("8글자 이상, 대문자, 소문자, 숫자, 특수문자를 포함해야 합니다.");
             setBtnVisbility(false);
         }
@@ -211,14 +202,14 @@ function PWBox() {
 
     }
 
-    const handleChange3 = (pw) =>{
+    const handleChange3 = (pw) => {
 
-        if(pw == pw2){
+        if (pw == pw2) {
 
             setMsg3("비밀번호가 일치합니다")
             setBtnVisbility(true);
         }
-        else{
+        else {
 
             setMsg3("비밀번호가 일치하지 않습니다")
             setBtnVisbility(false)
@@ -228,6 +219,8 @@ function PWBox() {
 
 
     }
+
+
 
 
     return (
@@ -242,37 +235,37 @@ function PWBox() {
                     <HeaderContainer>
                         <H>비밀번호 재설정</H>
                         <ImgBox>
-                        <BackImg src={settingImg} onClick={()=>{navi("/setting")}}/>
+                            <BackToSet />
                         </ImgBox>
                     </HeaderContainer>
 
                     <PWBoxContainer>
 
                         <CurPWBox boxVisiblity={boxVisiblity}>
-                        <InputBar>
-                            <Img src={pwImg}/>
-                            <PutPW id={0} onPWChange={handleChange1}/>
-                            
-                        </InputBar>
-                        <P1>{msg1}</P1>
+                            <InputBar>
+                                <Img src={pwImg} />
+                                <PutPW id={0} onPWChange={handleChange1} />
+
+                            </InputBar>
+                            <P1>{msg1}</P1>
                         </CurPWBox>
-                        <NewPWBox boxVisiblity = {boxVisiblity}>
-                        <InputBar>
-                            <Img src={pwImg} />
-                            <PutPW id={1} onPWChange={handleChange2}/>
-                        </InputBar>
-                        <P1>{msg2}</P1>
-                        <InputBar>
-                            <Img src={pwImg} />
-                            <PutPW id={2} onPWChange={handleChange3}/>
-                        </InputBar>
-                        <P1>{msg3}</P1>
+                        <NewPWBox boxVisiblity={boxVisiblity}>
+                            <InputBar>
+                                <Img src={pwImg} />
+                                <PutPW id={1} onPWChange={handleChange2} />
+                            </InputBar>
+                            <P1>{msg2}</P1>
+                            <InputBar>
+                                <Img src={pwImg} />
+                                <PutPW id={2} onPWChange={handleChange3} />
+                            </InputBar>
+                            <P1>{msg3}</P1>
                         </NewPWBox>
                     </PWBoxContainer>
 
                     <ButtonContainer>
-                        <ButtonBox btnVisibility = {btnVisibility}>
-                        <Button/>
+                        <ButtonBox btnVisibility={btnVisibility}>
+                            <Button />
                         </ButtonBox>
                     </ButtonContainer>
                 </PWContainer>

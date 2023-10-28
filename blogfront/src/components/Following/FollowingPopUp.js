@@ -6,8 +6,12 @@ import data from './TempData';
 import { updateTempData } from './TempData';
 import img1 from './Source/search.png';
 import img2 from './Source/close.png';
+import bg from './Source/bgimg.png'
 
 const Container = styled.div`
+
+    background-image: url(${bg});
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
