@@ -8,7 +8,7 @@ let Container = styled.div`
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width: 100vw;
+    width: calc(100vw - 7rem);
     background-image: url(${img1});
     background-size: cover; 
 

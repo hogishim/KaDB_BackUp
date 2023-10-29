@@ -20,6 +20,8 @@ import Following from './components/Following/Integrated'
 import PWResetS from './components/PWResetS/Integrated'
 import BadgeRq from './components/BadgeRq/Integrated'
 import EditTag from './components/EditTag/Integrated'
+import EnrollPost from './components/EnrollPost/Integrated';
+import ManagePost from './components/ManagePost/Integrated';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -37,9 +39,11 @@ root.render(
           <Route path="setting" element={<Setting />} />
           <Route path="follower" element={<Follower />} />
           <Route path="following" element={<Following />} />
-          <Route path="/setting/pw" element={<PWResetS />} />
-          <Route path="/setting/bg" element={<BadgeRq />} />
-          <Route path="/setting/tag" element={<EditTag />} />
+          <Route path="setting/pw" element={<PWResetS />} />
+          <Route path="setting/bg" element={<BadgeRq />} />
+          <Route path="setting/tag" element={<EditTag />} />
+          <Route path="enrollpost" element={<EnrollPost/>}/>
+          <Route path="managepost" element={<ManagePost/>}/>
 
           {/* NavBar 필요 없는 것들 */}
         </Route>

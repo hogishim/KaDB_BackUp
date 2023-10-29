@@ -1,22 +1,48 @@
 import styled from "styled-components";
 
+import user from "./user.png"
+
 import HotBlogger from "./HotBlogger";
 import HotPost from "./HotPost";
 import Map from "./Map";
 import Head from "./Head";
 
 const MainDiv = styled.div`
+    width: 100%;
 `
 const ContentsDiv = styled.div`
     background-color: white;
     border: 1px solid black;
+    padding: 1rem;
 `
 function Main() {
+    const hotbloggers = [
+        {
+            img : user,
+            name : 'Lion_Trip',
+            followers : '33000',
+        },
+        {
+            img : user,
+            name : 'choonsigi',
+            followers : '28000',
+        },
+        {
+            img : user,
+            name : 'tough_Cookie',
+            followers : '18000',
+        },
+    ]
+    const hotposts = [
+        {
+            
+        }
+    ]
     return (
         <MainDiv>
-            <Head />
+            <Head/>
             <ContentsDiv>
-                <HotBlogger />
+                <HotBlogger hotbloggers={hotbloggers}/>
                 <Map />
                 <HotPost />
             </ContentsDiv>

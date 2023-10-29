@@ -4,14 +4,14 @@ import styled from 'styled-components'
 import img from './Source/bgimg.png'
 import MappingContainer from '../Setting/MappingContainer'
 import BadgeBox from './BadgeBox'
-import BackToSet from '../Setting/BackToSet'
+import HeaderBox from '../Setting/HeaderBox'
 
 let Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  width: 100vw;
+  width: calc(100vw - 7rem);
   background-image: url(${img});
     background-size: cover; 
 
@@ -27,17 +27,7 @@ let SettingBox = styled.div`
   border-radius: 20px;
 
 `
-let HeaderContainer = styled.div`
 
-flex-grow: 10;
-justify-content: center;
-width: 100%;
-height: 10vh;
-display: flex;
-flex-direction: row;
-
-
-`
 
 let RequestBadge = styled.div`
 
@@ -49,28 +39,6 @@ display: flex;
 
 
 `
-
-
-let ImgBox2 = styled.div`
-
-flex-grow: 3;
-display: flex;
-align-items: center;
-justify-content: center;
-
-`
-
-let H = styled.div`
-
-flex-grow: 7;
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 20px;
-
-
-`
-
 
 function BadgeBar() {
 
@@ -85,13 +53,7 @@ function BadgeBar() {
 
                 <SettingBox>
                 <MappingContainer />
-                <HeaderContainer>
-                  
-                        <H>Badge 신청</H>
-                        <ImgBox2>
-                       <BackToSet />
-                        </ImgBox2>
-                    </HeaderContainer>
+                    <HeaderBox headerText="뱃지 신청" />
                     <RequestBadge>
                       <BadgeBox img={img1}/>
                       <BadgeBox img={img2}/>
@@ -99,10 +61,10 @@ function BadgeBar() {
                 </SettingBox>
 
             </Container>
+
         </>
+
     )
-
-
 
 }
 export default BadgeBar;

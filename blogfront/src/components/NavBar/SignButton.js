@@ -15,7 +15,7 @@ const SB = styled.button`
 function SignButton(props){
     return(
         <>
-            <SB>{props.text}</SB>
+            <SB onClick={()=>props.onClick()}>{props.text}</SB>
         </>
     )
 }

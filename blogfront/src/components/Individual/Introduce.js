@@ -4,6 +4,7 @@ import editIcon from "./editIcon.png";
 import calanderIcon from "./calanderIcon.png";
 import settingIcon from "./settingIcon.png";
 import bedgeIcon from "./bedgeIcon.png";
+import { useNavigate } from "react-router-dom";
 
 const IntroduceDiv = styled.div`
     display : grid;
@@ -63,7 +64,7 @@ const ButtonImg = styled.img`
 `
 
 function Introduce(props) {
-    
+    const navigate = useNavigate()
     return (
         <IntroduceDiv>
             <NameDiv>
@@ -78,11 +79,11 @@ function Introduce(props) {
                         <td>게시물</td>
                         <td>{props.postcount.toLocaleString('ko-KR')}</td>
                     </tr>
-                    <tr>
+                    <tr onClick={()=>navigate('/follower')}>
                         <td>팔로워</td>
                         <td>{props.follower.toLocaleString('ko-KR')}</td>
                     </tr>
-                    <tr>
+                    <tr onClick={()=>navigate('/following')}>
                         <td>팔로잉</td>
                         <td>{props.following.toLocaleString('ko-KR')}</td>
                     </tr>
@@ -93,8 +94,8 @@ function Introduce(props) {
                 {props.intro}
             </TextDiv>
             <ButtonDiv>
-                <ButtonImg src={calanderIcon}/>
-                <ButtonImg src={settingIcon}/>
+                <ButtonImg src={calanderIcon} onClick={()=>navigate('/')}/>
+                <ButtonImg src={settingIcon} onClick={()=>navigate('/setting')}/>
             </ButtonDiv>
         </IntroduceDiv>
     )
