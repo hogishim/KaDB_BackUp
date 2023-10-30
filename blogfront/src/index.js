@@ -15,13 +15,15 @@ import PlaceInfo from './components/PlaceInfo/Integrated';
 import IndividualBlogHome from './components/IndividualBlogHome/Integrated';
 import IndividualBlogPost from './components/IndividualBlogPost/Integrated';
 import Setting from './components/Setting/Integrated'
-import Follower from './components/Follower/Integrated'
-import Following from './components/Following/Integrated'
+import Follower from './components/Follow/Follower/Integrated'
+import Following from './components/Follow/Following/Integrated'
 import PWResetS from './components/PWResetS/Integrated'
 import BadgeRq from './components/BadgeRq/Integrated'
 import EditTag from './components/EditTag/Integrated'
 import EnrollPost from './components/EnrollPost/Integrated';
 import ManagePost from './components/ManagePost/Integrated';
+import RouteView from './components/RouteView/Integrated';
+import ManageRoute from './components/ManageRoute/Integrated'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -44,9 +46,12 @@ root.render(
           <Route path="setting/tag" element={<EditTag />} />
           <Route path="enrollpost" element={<EnrollPost/>}/>
           <Route path="managepost" element={<ManagePost/>}/>
+          <Route path="routeview" element={<RouteView />} />
+          <Route path="manageroute" element={<ManageRoute />}/>
 
-          {/* NavBar 필요 없는 것들 */}
         </Route>
+
+        {/* NavBar 필요 없는 것들 */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/pwresetl" element={<PWResetL />} />

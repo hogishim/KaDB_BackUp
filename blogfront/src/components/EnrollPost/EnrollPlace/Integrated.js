@@ -1,8 +1,8 @@
 import EnrollPopUp from "./EnrollPopUp";
 
-function Integrated(){
+function Integrated(props){
 
-    return <EnrollPopUp />
+    return <EnrollPopUp closeWindow = {props.closeWindow} />
 
 
 }

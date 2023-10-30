@@ -39,22 +39,31 @@ const MenuDiv = styled.div`
     flex-direction:column;
     flex-grow:1;
 `
+const SearchDiv = styled.div`
+    position:relative;
+    z-index: 10;
+`
 
-function NavBar(){
+function NavBar(props) {
     const navigate = useNavigate()
-    const [toggleSearch,setToggleSearch] = useState(false)
-    return(
+    const [toggleSearch, setToggleSearch] = useState(false)
+    return (
         <BackDiv>
-            <HomepageLogo src={homepageLogoIcon}/>
-            <Profile text="USERNAME" src={userIcon}/>
+            <HomepageLogo src={homepageLogoIcon} />
+            <Profile text="USERNAME" src={userIcon} />
             <MenuDiv>
-                <MenuButton text="HOME" src={homeIcon} onClick={()=>navigate('/main')}/>
-                <MenuButton text="PROFILE" src={profileIcon} onClick={()=>navigate('/individual')}/>
-                <MenuButton text="SEARCH" src={searchIcon} onClick={()=>{setToggleSearch(!toggleSearch)}}/>
+                <MenuButton text="HOME" src={homeIcon} onClick={() => navigate('/main')} />
+                <MenuButton text="PROFILE" src={profileIcon} onClick={() => navigate('/individual')} />
+                <SearchDiv>
+                    <MenuButton text="SEARCH" src={searchIcon} onClick={(e) => { 
+                            setToggleSearch(!toggleSearch) 
+                        }}/>
+                    {toggleSearch&&<Input/>}
+                </SearchDiv>
             </MenuDiv>
             <SignDiv>
-                <SignButton text="Sign In" onClick={()=>navigate('/login')}/>
-                <SignButton text="Sign Up" onClick={()=>navigate('/signup')}/>
+                <SignButton text="Sign In" onClick={() => navigate('/login')} />
+                <SignButton text="Sign Up" onClick={() => navigate('/signup')} />
             </SignDiv>
         </BackDiv>
     )

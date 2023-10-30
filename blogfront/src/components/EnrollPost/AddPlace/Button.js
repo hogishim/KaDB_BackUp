@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components'
 
 let Btn = styled.button`
@@ -14,7 +15,15 @@ margin: 10px;
 
 function Button(props){
 
-return <Btn color={props.color}>{props.text}</Btn>
+    const [click, setClick] = useState(true);
+
+return <Btn color={props.color} onClick={()=>{
+    
+    setClick(true)
+    props.onClickChange(click)
+
+
+}}>{props.text}</Btn>
 
 
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -13,6 +14,7 @@ const SiteName = styled.h1`
  color: #FAF4C0;
  margin-top: 10px;
  margin-left: 20px;
+ font-weight: bold;
 `;
 
 const BlogDescription = styled.div`
@@ -20,6 +22,7 @@ const BlogDescription = styled.div`
   font-family: KakaoRegular;
   color: #FFFFFF;
   margin-left: 20px;
+  margin-top: 5px;
 `;
 
 
@@ -29,40 +32,41 @@ const CategoryTitle = styled.div`
   color: #FFFFFF;
   font-weight: bold;
   text-decoration: 2px yellow underline;
-  margin-left: 20px;
+  margin-left: 80px;
+  margin-top: 40px;
 `;
 
 
 const CategoryBox = styled.div`
   background-color: #FFFFFF;
   border-radius: 5px;
-  margin: 20px 25px;
+  margin: 20px 80px;
   display: flex;
   flex-direction: row;
-  margin-left: 20px;
+  margin-left: 80px;
 `;
 
 const Categories = styled.div`
   display: flex;
-  margin-top: 10px;
   flex-direction: column;
   flex: 1;
-  margin-left: 20px;
+  margin-left: 10px;
+  margin-top: 20px;
 `;
 
 const CategoryItem = styled.div`
-  font-size: 12pt;
+  font-size: 11pt;
   font-family: KakaoBold;
   font-weight: bold;
   text-shadow: 2px 2px 2px gray;
-  margin-right: 30px;
   margin-left: 20px;
 `;
 
 const PostItem = styled.div`
-  font-size: 8pt;
+  font-size: 9pt;
   font-family: KakaoRegular;
-  margin-left: 20px;
+  margin-left: 22px;
+  margin: 20px;
 `;
 
 const PopularPostTitle = styled.div`
@@ -71,42 +75,49 @@ const PopularPostTitle = styled.div`
   color: #FFFFFF;
   font-weight: bold;
   text-decoration: 2px yellow underline;
-  margin-left: 20px;
+  margin-left: 80px;
+  margin-top: 40px;
 `;
 
 const PopularPostsBox = styled.div`
   background-color: #FFFFFF;
   border-radius: 5px;
-  margin: 15px 25px;
+  margin: 20px 80px;
+  padding: 20px 10px;
   flex: 1;
-  margin-left: 20px;
+  display: flex;
+  flex-direction: row;
+  margin-left: 80px;
 `;
 
 const PopularPost = styled.div`
   background-color: #CBCBCB;
-  padding: 10px;
+  padding: 20px 20px;
   border-radius: 3px;
-  margin: 25px;
-  display: inline-block;
-  margin-left: 20px;
+  margin: 20px 50px;
+  margin-left: 40px;
 `;
 
 const PostImage = styled.img`
-  width: 100px;
-  height: 65px;
-  margin-right: 10px;
-  padding: 10px;
-  margin-left: 20px;
+  width: 250px;
+  height: 200px;
+  margin: 20px 20px;
+  padding: 10px 20px;
+  margin-top: 10px;
+  margin-left: 10px;
 `;
 
 const PostTags = styled.div`
-  font-size: 8pt;
+  font-size: 9pt;
   font-family: KakaoRegular;
-  color:#000000;
-  margin-left: 20px;
+  color: #000000;
+  margin-left: 10px;
 `;
 
 function IndividualBlogHome() {
+
+const navi = useNavigate();
+
   return (
 
     <Container>
@@ -171,15 +182,15 @@ function IndividualBlogHome() {
       <div>
       <PopularPostTitle>Popular Post</PopularPostTitle>
       <PopularPostsBox>
-        <PopularPost>
+        <PopularPost onClick={()=>{navi("/blogpost")}}>
           <PostImage src="유럽.jpg" alt="Europe" />
           <PostTags>#UK #FRANCE</PostTags>
         </PopularPost>
-        <PopularPost>
+        <PopularPost onClick={()=>{navi("/blogpost")}}>
           <PostImage src="뉴질랜드.jpg" alt="New Zealand" />
           <PostTags>#NEW ZEALAND</PostTags>
         </PopularPost>
-        <PopularPost>
+        <PopularPost onClick={()=>{navi("/blogpost")}}>
           <PostImage src="싱가포르.jpg" alt="Singapore" />
           <PostTags>#SINGAPORE</PostTags>
         </PopularPost>

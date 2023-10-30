@@ -14,7 +14,7 @@ margin: 10px;
 
 function Button(props){
 
-return <Btn colour={props.colour}>{props.text}</Btn>
+return <Btn colour={props.colour} onClick={()=>{props.closeWindow(false)}}>{props.text}</Btn>
 
 
 }

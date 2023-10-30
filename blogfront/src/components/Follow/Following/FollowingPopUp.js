@@ -1,30 +1,33 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import SearchBar from './SearchBar';
-import FollowerComponent from './FollowerComponent';
+import FollowComponent from '../FollowComponent';
 import data from './TempData';
 import { updateTempData } from './TempData';
-import img1 from './Source/search.png';
-import img2 from './Source/close.png';
-import bg from './Source/bgimg.png'
+import img1 from '../Source/search.png';
+import img2 from '../Source/close.png';
+import bg from '../Source/bgimg2.png'
+import HeaderBox from '../HeaderBox'
+import MappingBox from '../MappingContainer';
 
 const Container = styled.div`
+
+    background-image: url(${bg});
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width: 100vw;
-    background-image: url(${bg});
-    background-size: cover; 
+    width: calc(100vw - 7rem);
 `;
 
 const FollowerBox = styled.div`
     justify-content: center;
     align-items: center;
     width: 40vw;
-    height: 60vh;
+    height: 65vh;
     text-align: center;
-    background-color: #FBF1DF;
+    background-color: #DCEBFF;
     border: 0;
     border-radius: 20px;
     box-shadow: 5px 5px 5px 5px grey;
@@ -70,7 +73,7 @@ const Img2 = styled.img`
     cursor: pointer;
 `;
 
-function FollowerPopUp() {
+function FollowingPopUp() {
     const [userData, setUserData] = useState([...data]);
     const [search, setSearch] = useState('');
 
@@ -94,8 +97,9 @@ function FollowerPopUp() {
         <>
             <Container>
                 <FollowerBox>
+                    <MappingBox />
                     <HeaderContainer>
-                        <h3>팔로워 리스트</h3>
+                        <HeaderBox text="팔로잉중인 사용자 리스트"/>
                         <SearchBox>
                             <Img src={img1} />
                             <SearchBar value={search} onChange={handleSearchChange} />
@@ -103,7 +107,8 @@ function FollowerPopUp() {
                         </SearchBox>
                     </HeaderContainer>
                     <FollowerComponentContainer>
-                        <FollowerComponent data={userData} onButtonClick={handleBlockUser} />
+                        <FollowComponent data={userData} colour="#23C9BF"
+                            onButtonClick={handleBlockUser} text="언팔로우" />
                     </FollowerComponentContainer>
                 </FollowerBox>
             </Container>
@@ -111,4 +116,4 @@ function FollowerPopUp() {
     );
 }
 
-export default FollowerPopUp;
+export default FollowingPopUp;

@@ -19,7 +19,6 @@ let Container = styled.div`
 
 `
 
-
 let PWContainer = styled.div`
 
     width: 30vw;
@@ -37,8 +36,6 @@ let PWContainer = styled.div`
 
 `
 
-
-
 let ButtonContainer = styled.div`
 
 flex-grow: 10;
@@ -46,23 +43,14 @@ width: 100%;
 
 `
 
-
-
-
-
-
 let ButtonBox = styled.div`
 
 display: ${(props) => (props.btnVisibility ? 'flex' : 'none')};
-
 transition: all 1s; 
 align-items: center;
 justify-content: center;
 
 `
-
-
-
 
 function PWBox() {
 
@@ -99,8 +87,6 @@ function PWBox() {
             </Container>
         </>
     )
-
-
 
 }
 export default PWBox;

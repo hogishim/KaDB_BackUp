@@ -12,7 +12,8 @@ const PWResetLDiv = styled.div`
     display : flex;
     flex-direction : column;
     align-items : center;
-    width : 30rem;
+    width : 100%;
+    height: 100vh;
     background-color : #09006B;
 `
 const Logo = styled.img`

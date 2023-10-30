@@ -13,6 +13,7 @@ const SiteName = styled.h1`
  color: #FAF4C0;
  margin-top: 10px;
  margin-left: 20px;
+ font-weight: bold;
 `;
 
 const BlogDescription = styled.div`
@@ -36,7 +37,7 @@ const ScheduleTitle = styled.div`
   color: #FFFFFF;
   font-weight: bold;
   text-decoration: 2px yellow underline;
-  margin-left: 20px;
+  margin-left: 120px;
   margin-top: 30px;
 `;
 
@@ -44,25 +45,27 @@ const ScheduleTitle = styled.div`
 const ScheduleBox = styled.div`
   background-color: #FFFFFF;
   color: #000000;
-  padding: 20px;
+  padding: 20px 100px;
   border-radius: 50px;
   margin: 20px 10px;
   font-family: KakaoBold;
   font-size: 10pt;
   font-weight: bold;
+  margin-left: 80px;
 `;
 
 const Enrollbutton = styled.button`
   background-color: #FFFFFF;
   color: #000000;
   font-family: KakaoBold;
-  font-size: 12pt;
+  font-size: 10pt;
   border-radius: 50px;
-  padding: 20px;
+  padding: 20px 40px;
   margin: 20px 10px;
   font-weight: bold;
   text-shadow: 2px 2px 2px gray;
-  margin-left: 700px;
+  position: absolute;
+  right: 100px;
 `;
 
 const Posts = styled.div`
@@ -70,16 +73,19 @@ const Posts = styled.div`
   margin-top: 10px;
   flex-direction: column;
   background-color: #FFFFFF;
-  margin-left: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin: 20px 100px;
   border-radius: 10px;
 `;
 
 const PostBox = styled.div`
-  margin-top: 10px;
+  margin-top: 30px;
   background-color: #F2F2F2;
   margin-left: 20px;
-  margin-top: 10px;
+  margin: 20px 20px;
   border-radius: 10px;
+  padding: 10px 20px;
 `;
 
 const PostBoxTitle = styled.div`
@@ -88,22 +94,38 @@ const PostBoxTitle = styled.div`
   font-weight: bold;
   margin-left: 20px;
   margin-top: 10px;
+  margin: 20px 20px;
 `;
 
 const PostItemBox = styled.div`
   background-color: #FFFFFF;
   margin-left: 20px;
   border-radius: 10px;
-  margin-left: 20px;
-  margin-top: 10px;
+  margin-top: 20px;
   display: flex;
   flex-direction: row;
+  position: relative;
+  padding: 20px 20px;
+  margin: 30px 20px;
+`;
+
+const ManageButton = styled.button`
+  background-color: #FDE8C4;
+  color: #000000;
+  padding: 5px 10px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+  font-family: KakaoRegular;
+  font-size: 9pt;
+  border: none;
 `;
 
 const PostItemimage = styled.img`
   width: 100px;
   height: 60px;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-left: 20px;
 `;
 
@@ -111,7 +133,7 @@ const PostItems = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 20px;
-  margin-top: 10px;
+  margin-top: 20px;
 `;
 
 const PostItemTitle = styled.div`
@@ -119,35 +141,36 @@ const PostItemTitle = styled.div`
   font-size: 12pt;
   font-weight: bold;
   margin-left: 20px;
-  margin-top: 10px;
 `;
 
 const PostItem = styled.div`
   font-family: KakaoRegular;
-  font-size: 8pt;
+  font-size: 9pt;
   color: #000000;
-  margin-left: 40px;
-  margin-top: 12px;
+  margin-left: 25px;
+  margin-top: 10px;
 `;
 
 const SummaryItem = styled.div`
   font-family: KakaoBold;
-  font=size: 10pt;
+  font-size: 10pt;
   color: #000000;
-  margin-top: 10px;
   font-weight: bold;
-  text-align: right;
-  margin-left: 850px;
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
   `;
 
 const AddButton = styled.button`
   background-color: #C6FF8C;
   color: black;
-  padding: 10px 20px;
-  justify-content: center;
+  padding: 10px 22px;
   align-items: center;
   margin-top: 40px;
   border-radius: 50px;
+  margin: 20px auto;
+  display: block;
+  border: none;
 `;
 
   function RouteEdit() {
@@ -175,6 +198,7 @@ const AddButton = styled.button`
                         <PostItemTitle>인천 국제 공항</PostItemTitle>
                         <PostItem>여행 가기 전, 필수로 거쳐야 하는 관문</PostItem>
                         <SummaryItem>대한항공 / 13시간 소요 / 예상비용: 1,400,000원</SummaryItem>
+                        <ManageButton>수정</ManageButton>
                     </PostItems>
                 </PostItemBox>
                 <PostItemBox>
@@ -183,6 +207,7 @@ const AddButton = styled.button`
                         <PostItemTitle>런던 히스로 공항</PostItemTitle>
                         <PostItem>런던의 관문 공항. 시내까지 약 50분 소요</PostItem>
                         <SummaryItem>히스로 익스프레스 / 20분 소요 / 예상비용: 14,000원</SummaryItem>
+                        <ManageButton>수정</ManageButton>                    
                     </PostItems>
                 </PostItemBox>
                 <PostItemBox>
@@ -191,6 +216,7 @@ const AddButton = styled.button`
                         <PostItemTitle>그랜드 하얏트 호텔</PostItemTitle>
                         <PostItem>런던에서 가장 비싸고 유명한 호텔</PostItem>
                         <SummaryItem>예상비용: 14,000원</SummaryItem>
+                        <ManageButton>수정</ManageButton>
                     </PostItems>
                 </PostItemBox>
                 <PostBoxTitle>2일차 런던</PostBoxTitle>
@@ -203,3 +229,4 @@ const AddButton = styled.button`
     }
     
     export default RouteEdit;
+

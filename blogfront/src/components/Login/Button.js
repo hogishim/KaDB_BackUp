@@ -12,7 +12,7 @@ const ButtonBTN = styled.button`
 function Button (props){
     return(
         <>
-            <ButtonBTN>
+            <ButtonBTN onClick={props.onClick}>
                 {props.text}
             </ButtonBTN>
         </>

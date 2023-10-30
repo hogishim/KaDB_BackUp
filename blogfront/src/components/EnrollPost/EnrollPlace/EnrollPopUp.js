@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import InputBox from './InputBox';
 import InputImg from './InputImg'
-import Button from '../AddCity/Button';
+
 
 let Container = styled.div`
+    position: absolute;
+    top: 20;
+    left: 10;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -62,36 +65,45 @@ height: 100px;
 
 `
 
+let Btn = styled.button`
 
-function EnrollPlace() {
+padding: 10px;
+border-radius: 10px;
+background-color: #567ace;
+border: 0;
+flex-grow: 2;
+margin: 10px;
+
+`
+
+
+function EnrollPlace(props) {
     const [image, setImage] = useState(null);
-
+    const [state, setState] = useState(false);
+  
     const handleImageChange = (imgData) => {
-        setImage(imgData);
+      setImage(imgData);
     };
-
+  
     return (
-        <Container>
-            <CityBox>
-
-                <HeaderBox>신규 장소 등록하기</HeaderBox>
-
-                <ImageInput>
-                    <ImageViewBox>
-                    {image && <ImagePreview src={image} alt="미리보기 이미지" />}
-                    </ImageViewBox>
-                    <InputImg onImageChange={handleImageChange} />
-
-                </ImageInput>
-                <NameInput>
-                    <InputBox hintText="장소 이름을 입력해주세요" />
-                    <InputBox hintText="장소 주소를 입력해주세요" />
-                </NameInput>
-                <Button text="등록하기" colour="#32A4FF"/>
-
-            </CityBox>
-        </Container>
+      <Container>
+        <CityBox>
+          <HeaderBox>신규 장소 등록하기</HeaderBox>
+          <ImageInput>
+            <ImageViewBox>
+              {image && <ImagePreview src={image} alt="미리보기 이미지" />}
+            </ImageViewBox>
+            <InputImg onImageChange={handleImageChange} />
+          </ImageInput>
+          <NameInput>
+            <InputBox hintText="장소 이름을 입력해주세요" />
+            <InputBox hintText="장소 주소를 입력해주세요" />
+          </NameInput>
+          <Btn onClick={() => props.closeWindow(state)}>등록하기</Btn>
+        </CityBox>
+      </Container>
     );
-}
-
-export default EnrollPlace;
+  }
+  
+  export default EnrollPlace;
+  

@@ -1,11 +1,11 @@
 import PlacePopUp from "./PlacePopUp";
 
-function Integrated(){
+function Integrated(props){
 
 
 return(
 <>
-<PlacePopUp />
+<PlacePopUp closeWindow={props.closeWindow2} />
 </>
 )
 }

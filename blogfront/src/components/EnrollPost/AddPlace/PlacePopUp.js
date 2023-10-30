@@ -9,10 +9,13 @@ import PlaceContainer from './PlaceContainer';
 import place from './TempPlace'
 import Button from './Button';
 import searchim from './Source/search.png'
+import EnrollPlace from '../EnrollPlace/Integrated'
 
 let Container = styled.div`
 
-    
+    position: absolute;
+    top: 0;
+    left: 20;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -92,12 +95,24 @@ border-bottom: 1px solid black;
 
 `
 
-function PlacePopUp() {
+let Btn = styled.button`
+
+padding: 10px;
+border-radius: 10px;
+background-color: #567ace;
+border: 0;
+flex-grow: 2;
+margin: 10px;
+
+`
+
+function PlacePopUp(props) {
 
     let [nat, setNat] = useState('영국')
     let [ct, setCt] = useState('리버풀')
     let [sr, setSr] = useState('')
     let [plc, setPlc] = useState([...place])
+    const [click, setClick] = useState(false)
 
     const handleNation = (nation) => {
 
@@ -126,6 +141,16 @@ function PlacePopUp() {
         setPlc(filteredData);
 
     }
+    const onClickChange = (val) => {
+
+
+        setClick(val);
+
+    }
+    const closeWindow = (val) => {
+        setClick(val);
+        
+    };
 
 
     return (
@@ -146,11 +171,18 @@ function PlacePopUp() {
                 <HR />
                 <PlaceContainer city={ct} place={plc} />
                 <BtnContainer>
-                    <Button color="#ffd700" text="신규 등록" />
+                    <Button color="#ffd700" text="신규 등록"
+                    onClickChange={onClickChange}
+                    
+                    />
                     <EmptyBox />
-                    <Button color="#00ffff" text="선택 완료" />
+                    <Btn onClick={()=>{props.closeWindow(false)}}>제출하기</Btn>
+
+                
                 </BtnContainer>
+              
             </CityBox>
+            {click && <EnrollPlace closeWindow={closeWindow}/>}
         </Container>
     );
 

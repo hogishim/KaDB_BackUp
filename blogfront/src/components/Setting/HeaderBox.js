@@ -42,6 +42,7 @@ function HeaderBox(props) {
             <ImgBox2>
                 <BackToSet />
             </ImgBox2>
+            
         </HeaderContainer>
 
 

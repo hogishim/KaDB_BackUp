@@ -13,6 +13,7 @@ const SiteName = styled.h1`
  color: #FAF4C0;
  margin-top: 10px;
  margin-left: 20px;
+ font-weight: bold;
 `;
 
 const BlogDescription = styled.div`
@@ -36,7 +37,7 @@ const ScheduleTitle = styled.div`
   color: #FFFFFF;
   font-weight: bold;
   text-decoration: 2px yellow underline;
-  margin-left: 20px;
+  margin-left: 120px;
   margin-top: 30px;
 `;
 
@@ -44,25 +45,27 @@ const ScheduleTitle = styled.div`
 const ScheduleBox = styled.div`
   background-color: #FFFFFF;
   color: #000000;
-  padding: 20px;
+  padding: 20px 100px;
   border-radius: 50px;
   margin: 20px 10px;
   font-family: KakaoBold;
   font-size: 10pt;
   font-weight: bold;
+  margin-left: 80px;
 `;
 
 const Copybutton = styled.button`
   background-color: #FFFFFF;
   color: #000000;
   font-family: KakaoBold;
-  font-size: 12pt;
+  font-size: 10pt;
   border-radius: 50px;
-  padding: 20px;
+  padding: 20px 40px;
   margin: 20px 10px;
   font-weight: bold;
   text-shadow: 2px 2px 2px gray;
-  margin-left: 700px;
+  position: absolute;
+  right: 100px;
 `;
 
 const Posts = styled.div`
@@ -70,16 +73,19 @@ const Posts = styled.div`
   margin-top: 10px;
   flex-direction: column;
   background-color: #FFFFFF;
-  margin-left: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin: 20px 100px;
   border-radius: 10px;
 `;
 
 const PostBox = styled.div`
-  margin-top: 10px;
+  margin-top: 30px;
   background-color: #F2F2F2;
   margin-left: 20px;
-  margin-top: 10px;
+  margin: 20px 20px;
   border-radius: 10px;
+  padding: 10px 20px;
 `;
 
 const PostBoxTitle = styled.div`
@@ -88,22 +94,26 @@ const PostBoxTitle = styled.div`
   font-weight: bold;
   margin-left: 20px;
   margin-top: 10px;
+  margin: 20px 20px;
 `;
+
 
 const PostItemBox = styled.div`
   background-color: #FFFFFF;
   margin-left: 20px;
   border-radius: 10px;
-  margin-left: 20px;
-  margin-top: 10px;
+  margin-top: 20px;
   display: flex;
   flex-direction: row;
+  position: relative;
+  padding: 20px 20px;
+  margin: 30px 20px;
 `;
 
 const PostItemimage = styled.img`
   width: 100px;
   height: 60px;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-left: 20px;
 `;
 
@@ -111,7 +121,7 @@ const PostItems = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 20px;
-  margin-top: 10px;
+  margin-top: 20px;
 `;
 
 const PostItemTitle = styled.div`
@@ -119,25 +129,24 @@ const PostItemTitle = styled.div`
   font-size: 12pt;
   font-weight: bold;
   margin-left: 20px;
-  margin-top: 10px;
 `;
 
 const PostItem = styled.div`
   font-family: KakaoRegular;
-  font-size: 8pt;
+  font-size: 9pt;
   color: #000000;
-  margin-left: 40px;
-  margin-top: 12px;
+  margin-left: 25px;
+  margin-top: 10px;
 `;
 
 const SummaryItem = styled.div`
   font-family: KakaoBold;
-  font=size: 10pt;
+  font-size: 10pt;
   color: #000000;
-  margin-top: 10px;
   font-weight: bold;
-  text-align: right;
-  margin-left: 850px;
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
   `;
 
   function RouteView() {
@@ -191,3 +200,4 @@ const SummaryItem = styled.div`
     }
     
     export default RouteView;
+

@@ -9,16 +9,11 @@ const ListDiv=styled.div`
     margin-bottom: 4%;
 `
 const ListImgDiv=styled.div`
-    position: relative;
     width: 100%;
     aspect-ratio: 1/1;
     overflow: hidden;
 `
 const ListImg=styled.img`
-    position: absolute;
-    left: 50%;
-    top : 50%;
-    transform: translate(-50%,-50%);
     width: 100%;
     height: 100%;
     object-fit: cover;

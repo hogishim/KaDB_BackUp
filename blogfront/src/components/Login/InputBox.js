@@ -39,10 +39,13 @@ const InputBoxInput = styled.input`
     }
 `
 function InputBox(props){
+    const inputChange = (e)=>{
+        props.setValue(e.target.value)
+    }
     return(
         <InputBoxDiv>
             <InputBoxImg src={props.src}/>
-            <InputBoxInput placeholder=" " type={props.type}/>
+            <InputBoxInput placeholder=" " type={props.type} onChange={(e)=>inputChange(e)}/>
             <InputBoxLabel>{props.text}</InputBoxLabel>
         </InputBoxDiv>
     )

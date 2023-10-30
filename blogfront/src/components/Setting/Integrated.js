@@ -1,6 +1,5 @@
 import SettingBox from './SettingBox'
 
-import TempBar from './TempBar';
 
 function Integrated(){
 

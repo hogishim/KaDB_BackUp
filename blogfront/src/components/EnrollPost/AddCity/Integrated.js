@@ -1,10 +1,10 @@
 import CityPopUp from "./CityPopUp";
 
-function Integrated(){
+function Integrated(props){
 
 
     return(
-    <CityPopUp />
+    <CityPopUp closeWindow={props.closeWindow} />
     )
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import NavBar from '../NavBar/Integrated';
+
 
 const Container = styled.div`
   display: flex;
@@ -14,49 +14,94 @@ const Categories = styled.div`
   margin-left: 20px;
 `;
 
-const CategoryHeader = styled.div`
-  font-family: KakaoBold;
-  font-size: 12pt;
-  color: #FFFFFF;
+const SectionHeader = styled.div`
+font-size: 12pt;
+font-family: KakaoBold;
+color: #FFFFFF;
+font-weight: bold;
+margin-left: 60px;
+margin-top: 25px;
 `;
 
 const CategorySelect = styled.select`
-  width: 100%;
   color: #000000;
   background-color: #FFFFFF;
-  padding: 5px;
+  padding: 5px 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 50px;
   margin: 10px 0;
+  margin-left: 20px;
+  margin-top: 20px;
+  font-family: KakaoRegular;
+  font-size: 10pt;
 `;
 
-const SectionHeader = styled.div`
-  font-size: 15pt;
+const ScheduleTitle = styled.div`
+  font-size: 12pt;
   font-family: KakaoBold;
-  text-decoration: yellow underline;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-decoration: 2px yellow underline;
+  margin-left: 120px;
+  margin-top: 30px;
 `;
 
-const Box = styled.div`
+const ScheduleBox = styled.div`
   background-color: #FFFFFF;
-  padding: 20px;
-  margin: 10px 0;
+  color: #000000;
+  padding: 20px 30px;
+  border-radius: 50px;
+  margin: 20px 10px;
+  font-family: KakaoBold;
+  font-size: 10pt;
+  font-weight: bold;
+  margin-left: 100px;
+  margin-right: 100px;
+`;
+
+const PostTitle = styled.div`
+  font-size: 12pt;
+  font-family: KakaoBold;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-decoration: 2px yellow underline;
+  margin-left: 120px;
+  margin-top: 20px;
+`;
+
+const Posts = styled.div`
+  display: flex;
+  margin-top: 10px;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  margin: 20px 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+  border-radius: 10px;
+  align-items: center;
 `;
 
 const AddButton = styled.button`
   background-color: #F9B507;
   color: black;
-  padding: 10px 20px;
+  padding: 20px 30px;
   justify-content: center;
+  border-radius: 50px;
+  border: none;
   align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: KakaoBold;
+  font-weight: bold;
+  font-size: 10pt;
 `;
 
 function EnrollPost() {
   return (
-  
-  <Container>
+      <Container>
         <div>
         <Categories>
-        <CategoryHeader>CATEGORY</CategoryHeader>
+        <SectionHeader>CATEGORY</SectionHeader>
         <CategorySelect>
           <option>국내여행</option>
           <option>유럽여행</option>
@@ -69,16 +114,16 @@ function EnrollPost() {
         </Categories>
         </div>
         <div>
-        <SectionHeader>SCHEDULE</SectionHeader>
-        <Box>제목을 입력하세요</Box>
+        <ScheduleTitle>SCHEDULE</ScheduleTitle>
+        <ScheduleBox>제목을 입력하세요</ScheduleBox>
         </div>
         <div>
-        <SectionHeader>POST</SectionHeader>
-        <Box>
+        <PostTitle>POST</PostTitle>
+        <Posts>
           <AddButton>일정 추가하기</AddButton>
-        </Box>
+        </Posts>
         </div>
-    </Container>
+        </Container>
   );
 }
 

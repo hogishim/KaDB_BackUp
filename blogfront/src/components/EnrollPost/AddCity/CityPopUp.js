@@ -12,6 +12,9 @@ let Container = styled.div`
     justify-content: center;
     align-items: center;
     height: 90vh;
+    position: absolute;
+    top: 0;
+    left: 20;
 `;
 
 let CityBox = styled.div`
@@ -73,7 +76,7 @@ align-items: center;
 
 `
 
-function CityPopUp() {
+function CityPopUp(props) {
     const [nation, setNation] = useState('영국');
     const [searchC, setSearchC] = useState('');
     const [info, setInfo] = useState([...c_info]);
@@ -106,7 +109,7 @@ function CityPopUp() {
                     <CityInfo info={info} nation={nation} />
                 </CityContainer>
                 <HR />
-                <Button colour="#ffa0af" text="제출하기" />
+                <Button colour="#ffa0af" text="제출하기" closeWindow={props.closeWindow}/>
             </CityBox>
         </Container>
     );

@@ -19,7 +19,7 @@ let FollowerContainer = styled.div`
 `
 
 let Btn = styled.button`
-    background-color: #09006B;
+    background-color: #23C9BF;;
     color: snow;
     border: 0;
     border-radius: 40px;

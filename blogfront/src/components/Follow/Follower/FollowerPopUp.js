@@ -1,29 +1,30 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import SearchBar from './SearchBar';
-import FollowingComponent from './FollowingComponent';
+import FollowComponent from '../FollowComponent';
 import data from './TempData';
 import { updateTempData } from './TempData';
-import img1 from './Source/search.png';
-import img2 from './Source/close.png';
-import bg from './Source/bgimg.png'
+import img1 from '../Source/search.png';
+import img2 from '../Source/close.png';
+import bg from '../Source/bgimg1.png'
+import HeaderBox from '../HeaderBox';
+import MappingBox from '../MappingContainer'
 
 const Container = styled.div`
-
-    background-image: url(${bg});
-    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width: 100vw;
+    width: calc(100vw - 7rem);
+    background-image: url(${bg});
+    background-size: cover; 
 `;
 
 const FollowerBox = styled.div`
     justify-content: center;
     align-items: center;
     width: 40vw;
-    height: 60vh;
+    height: 65vh;
     text-align: center;
     background-color: #FBF1DF;
     border: 0;
@@ -71,7 +72,7 @@ const Img2 = styled.img`
     cursor: pointer;
 `;
 
-function FollowingPopUp() {
+function FollowerPopUp() {
     const [userData, setUserData] = useState([...data]);
     const [search, setSearch] = useState('');
 
@@ -95,8 +96,9 @@ function FollowingPopUp() {
         <>
             <Container>
                 <FollowerBox>
+                    <MappingBox />
                     <HeaderContainer>
-                        <h3>팔로잉중 사용자 리스트</h3>
+                    <HeaderBox text="팔로워 사용자 리스트"/>
                         <SearchBox>
                             <Img src={img1} />
                             <SearchBar value={search} onChange={handleSearchChange} />
@@ -104,7 +106,8 @@ function FollowingPopUp() {
                         </SearchBox>
                     </HeaderContainer>
                     <FollowerComponentContainer>
-                        <FollowingComponent data={userData} onButtonClick={handleBlockUser} />
+                        <FollowComponent data={userData} colour="#EB0000"
+                            onButtonClick={handleBlockUser} text="차단하기" />
                     </FollowerComponentContainer>
                 </FollowerBox>
             </Container>
@@ -112,4 +115,4 @@ function FollowingPopUp() {
     );
 }
 
-export default FollowingPopUp;
+export default FollowerPopUp;

@@ -94,7 +94,7 @@ function Introduce(props) {
                 {props.intro}
             </TextDiv>
             <ButtonDiv>
-                <ButtonImg src={calanderIcon} onClick={()=>navigate('/')}/>
+                <ButtonImg src={calanderIcon} onClick={()=>navigate('/manageroute')}/>
                 <ButtonImg src={settingIcon} onClick={()=>navigate('/setting')}/>
             </ButtonDiv>
         </IntroduceDiv>
