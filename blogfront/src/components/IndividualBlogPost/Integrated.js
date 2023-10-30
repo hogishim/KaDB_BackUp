@@ -170,6 +170,65 @@ const TagBox = styled.div`
   margin-left: 10px;
 `;
 
+const subs = styled.div`
+  margin-top: 20px;
+  display: flex;
+  flex: row;
+  position: absolute;
+`;
+
+const HeartButton = styled.button`
+  background-color: #FFD9FA;
+  font-family: KakaoRegular;
+  font-size: 10pt;
+  padding: 10px 20px;
+  border-radius: 50px;
+  margin-left: 10px;
+  color: #000000;
+`;
+
+const HideButton = styled.button`
+  background-color: #FFFFFF;
+  color: #000000;
+  font-size: 10pt;
+  padding: 10px 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 10px;
+  margin-right: 10px;
+`;
+
+const CommentBox = styled.div`
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  margin: 20px 20px;
+  padding: 20px 20px;
+  display: flex;
+  flex: column;
+`;
+
+const Comments = styled.div`
+  background-color: #FFFFFF;
+  border-radius: 50px;
+  margin: 20px 20px;
+  padding: 20px 20px;
+  display: flex;
+  flex: row;
+`;
+
+const Profile = styled.img`
+  weight: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 10px 10px;
+`;
+
+const CommentItem = styled.div`
+  color: #000000;
+  font-family: KakaoRegular;
+  font-size: 10pt;
+  margin: 20px 20px;
+`;
 
 function IndividualBlogPost() {
   return (
@@ -214,6 +273,24 @@ function IndividualBlogPost() {
             </Tags>
           </PostBox>
         </Posts>
+        <subs>
+          <HeartButton></HeartButton>
+          <HideButton>댓글 숨기기</HideButton>
+        </subs>
+        <CommentBox>
+          <Comments>
+            <Profile src="Profile1.jpg" alt="Profile1"/>
+            <CommentItem>정말 좋은 글이네요! 다음에 한번 이 루트로 이용해볼게요</CommentItem>
+          </Comments>
+          <Comments>
+            <Profile src="Profile2.jpg" alt="Profile2"/>
+            <CommentItem>정말 좋은 글이네요! 다음에 한번 이 루트로 이용해볼게요</CommentItem>
+          </Comments>
+          <Comments>
+            <Profile src="Profile3.jpg" alt="Profile3"/>
+            <CommentItem>정말 좋은 글이네요! 다음에 한번 이 루트로 이용해볼게요</CommentItem>
+          </Comments>
+        </CommentBox>
       </div>
       </div>
     </Container>

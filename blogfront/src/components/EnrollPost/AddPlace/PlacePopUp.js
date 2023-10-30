@@ -10,6 +10,7 @@ import place from './TempPlace'
 import Button from './Button';
 import searchim from './Source/search.png'
 import EnrollPlace from '../EnrollPlace/Integrated'
+import HeaderContainer from '../HeaderContainer';
 
 let Container = styled.div`
 
@@ -157,7 +158,7 @@ function PlacePopUp(props) {
         <Container>
             <CityBox>
 
-                <HeaderBox>장소 추가하기</HeaderBox>
+                <HeaderContainer text="장소 추가하기" closeWindow={props.closeWindow}/>
                 <SelectionBox>
                     <SelectNation nation={nation} onNationChange={handleNation} />
                     <SelectCity nation={nat} city={city} onCityChange={handleCity} />

@@ -6,6 +6,7 @@ import { useState } from 'react';
 import c_info from './TempCity';
 import Button from './Button'
 import img from './Source/search.png'
+import HeaderContainer from '../HeaderContainer';
 
 let Container = styled.div`
     display: flex;
@@ -96,7 +97,7 @@ function CityPopUp(props) {
     return (
         <Container>
             <CityBox>
-                <HeaderBox>도시 추가하기</HeaderBox>
+                <HeaderContainer text="도시 추가하기"closeWindow={props.closeWindow}/>
                 <SelectionContainer>
                     <SelectionBox onNationChange={handleNationChange} />
                     <SearchContainer>

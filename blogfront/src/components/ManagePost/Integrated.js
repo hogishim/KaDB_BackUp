@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import AddCity from '../EnrollPost/AddCity/Integrated'
 import { useState } from 'react';
 import AddPlace from '../EnrollPost/AddPlace/Integrated'
+import AddTransport from '../EnrollPost/AddTransport/Integrated'
 
 const Container = styled.div`
   display: flex;
@@ -162,7 +163,7 @@ const AddImage = styled.img`
   margin-right: auto;
 `;
 
-const Manages  = styled.div`
+const Manages = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -211,22 +212,28 @@ const AddButton = styled.button`
 
 function ManagePost() {
 
-const [click, setClick] = useState(false);
-const [click2, setClick2] = useState(false);
+  const [click, setClick] = useState(false);
+  const [click2, setClick2] = useState(false);
+  const [click3, setClick3] = useState(false);
 
-const closeWindow = (val)=>{
+  const closeWindow = (val) => {
 
-  setClick(val)
-
-
-}
-
-const closeWindow2 = (val)=>{
-
-  setClick2(val)
+    setClick(val)
 
 
-}
+  }
+
+  const closeWindow2 = (val) => {
+
+    setClick2(val)
+
+
+  }
+  const closeWindow3 = (val) => {
+
+    setClick3(val)
+
+  }
 
   return (
     <Container>
@@ -242,42 +249,52 @@ const closeWindow2 = (val)=>{
           <option>남/북극여행</option>
         </CategorySelect>
       </Categories>
-        <ScheduleTitle>SCHEDULE</ScheduleTitle>
-        <ScheduleBox>Europe 2019.07.07 ~ 2019.08.13 영국 아일랜드 프랑스 스위스 오스트리아 체코</ScheduleBox>
-        <PostTitle>POST</PostTitle>
-            <Posts>
-                <PostBox>
-                    <PostBoxTitle>1일차 인천 - 런던</PostBoxTitle>
-                    <SaveButton>저장</SaveButton>
-                    <PostItemBox>
+      <ScheduleTitle>SCHEDULE</ScheduleTitle>
+      <ScheduleBox>Europe 2019.07.07 ~ 2019.08.13 영국 아일랜드 프랑스 스위스 오스트리아 체코</ScheduleBox>
+      <PostTitle>POST</PostTitle>
+      <Posts>
+        <PostBox>
+          <PostBoxTitle>1일차 인천 - 런던</PostBoxTitle>
+          <SaveButton>저장</SaveButton>
+          <PostItemBox>
 
-                        <PostItem>
-                            공항으로 가는 길은 언제나 설레요... 저는 항상 출국하는 날에는 설레서 잠을 못이룹니다.
-                            비행 3시간 전에 도착을 해야 하기 때문에, 8시에 출발하는 막차를 타고 9시쯤 도착해 체크인을 마쳤습니다.
-                            마침내 0시 20분 비행기에 탑승하였고, 0시 55분 비행기는 이륙했습니다!
-                        </PostItem>
-                        <AddImageBox>
-                          <AddImage src="AddImg.jpg" alt = "AddImg" />
-                        </AddImageBox>
-                    </PostItemBox>
-                <Manages>
-                <TagButton>#태그 추가</TagButton>
-                <ManageButton>이동수단 추가</ManageButton>
-                <ManageButton onClick={()=>{
-                  setClick2(true)
-                  setClick(false)
-                  }}>장소 추가</ManageButton>
-                
-                </Manages>
-                </PostBox>
-                <AddButton onClick={()=>{
-                  setClick(true)
-                  setClick2(false)
-                
-                }}>일정 추가하기</AddButton>
-                {click&&<AddCity closeWindow={closeWindow}/>}
-                {click2&&<AddPlace closeWindow2={closeWindow2} />}
-              </Posts>
+            <PostItem>
+              공항으로 가는 길은 언제나 설레요... 저는 항상 출국하는 날에는 설레서 잠을 못이룹니다.
+              비행 3시간 전에 도착을 해야 하기 때문에, 8시에 출발하는 막차를 타고 9시쯤 도착해 체크인을 마쳤습니다.
+              마침내 0시 20분 비행기에 탑승하였고, 0시 55분 비행기는 이륙했습니다!
+            </PostItem>
+            <AddImageBox>
+              <AddImage src="AddImg.jpg" alt="AddImg" />
+            </AddImageBox>
+          </PostItemBox>
+          <Manages>
+            <TagButton>#태그 추가</TagButton>
+            <ManageButton onClick={() => {
+
+              setClick3(true)
+              setClick(false)
+              setClick2(false)
+
+            }}>이동수단 추가</ManageButton>
+            <ManageButton onClick={() => {
+              setClick2(true)
+              setClick(false)
+              setClick3(false)
+            }}>장소 추가</ManageButton>
+
+          </Manages>
+        </PostBox>
+        <AddButton onClick={() => {
+
+          setClick(true)
+          setClick2(false)
+          setClick3(false)
+
+        }}>일정 추가하기</AddButton>
+        {click && <AddCity closeWindow={closeWindow} />}
+        {click2 && <AddPlace closeWindow2={closeWindow2} />}
+        {click3 && <AddTransport closeWindow3={closeWindow3}/>}
+      </Posts>
     </Container>
   );
 }

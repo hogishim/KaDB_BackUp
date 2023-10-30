@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import InputBox from './InputBox';
 import InputImg from './InputImg'
+import HeaderContainer from '../HeaderContainer';
 
 
 let Container = styled.div`
@@ -88,7 +89,7 @@ function EnrollPlace(props) {
     return (
       <Container>
         <CityBox>
-          <HeaderBox>신규 장소 등록하기</HeaderBox>
+          <HeaderContainer text="신규장소 등록하기" closeWindow={props.closeWindow} />
           <ImageInput>
             <ImageViewBox>
               {image && <ImagePreview src={image} alt="미리보기 이미지" />}

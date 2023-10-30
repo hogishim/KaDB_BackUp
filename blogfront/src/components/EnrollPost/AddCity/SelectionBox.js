@@ -21,7 +21,7 @@ function SelectionBox(props) {
     const handleNation = (e) => {
         const selectedValue = e.target.value;
         setSelectedNation(selectedValue);
-        props.onNationChange(selectedValue); // 선택한 값 전달
+        props.onNationChange(selectedValue); 
     };
 
     return (
