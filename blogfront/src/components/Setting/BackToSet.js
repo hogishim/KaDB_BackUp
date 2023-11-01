@@ -11,12 +11,9 @@ height: 50px;
 
 &:hover{
 
-
 transition: all 1s;
 
 }
-
-
 
 `
 

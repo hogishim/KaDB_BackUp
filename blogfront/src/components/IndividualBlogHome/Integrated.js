@@ -6,6 +6,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #CF6E36;
+  height: 100vh;
 `;
 
 const SiteName = styled.h1`

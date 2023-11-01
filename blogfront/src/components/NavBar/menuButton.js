@@ -5,6 +5,7 @@ const MenuDiv = styled.div`
     text-align : center;
     color : white;
     margin-top : 1rem;
+    cursor: pointer;
 `
 const MenuImg = styled.img`
     width : 2rem;

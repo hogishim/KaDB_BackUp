@@ -3,10 +3,13 @@ import styled from "styled-components";
 
 const HeadDiv = styled.div`
     text-align : center;
+    margin-bottom: 1rem;
 `
 const StartBtn = styled.button`
     background-color: #FFDB31;
     border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
 `
 
 function Head(){

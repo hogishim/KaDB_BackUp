@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { useState } from 'react'
-import pwImg from './Source/lock.png'
-import PutPW from './PutPW'
+import InputBox from './InputBox'
 
 let CurPWBox = styled.div`
 
@@ -19,34 +18,6 @@ transition: all 1s;
 
 `
 
-let Img = styled.img`
-
-height: 1.5rem;
-width: 1.5rem;
-margin-left: 10px;
-
-`
-let P1 = styled.div`
-
-font-size: 10px;
-text-align: start;
-width: 15vw;
-color: red;
-`
-let InputBar = styled.div`
-
-background-color: #F2F2F2;
-width: 15vw;
-display: flex;
-align-items: center;
-flex-direction: row;
-margin: 10px;
-height: 3rem;
-border-radius: 4px;
-
-`
-
-
 let BoxContainer = styled.div`
 
 justify-content: center;
@@ -58,7 +29,6 @@ flex-grow: 50;
 
 
 `
-
 
 function PWBoxContainer(props) {
 
@@ -135,8 +105,6 @@ function PWBoxContainer(props) {
 
         }
 
-
-
     }
 
 
@@ -146,24 +114,12 @@ function PWBoxContainer(props) {
         <BoxContainer>
 
             <CurPWBox boxVisiblity={boxVisiblity}>
-                <InputBar>
-                    <Img src={pwImg} />
-                    <PutPW id={0} onPWChange={handleChange1} />
-
-                </InputBar>
-                <P1>{msg1}</P1>
+                <InputBox handleChange={handleChange1} msg={msg1} />
             </CurPWBox>
+
             <NewPWBox boxVisiblity={boxVisiblity}>
-                <InputBar>
-                    <Img src={pwImg} />
-                    <PutPW id={1} onPWChange={handleChange2} />
-                </InputBar>
-                <P1>{msg2}</P1>
-                <InputBar>
-                    <Img src={pwImg} />
-                    <PutPW id={2} onPWChange={handleChange3} />
-                </InputBar>
-                <P1>{msg3}</P1>
+                <InputBox handleChange={handleChange2} msg={msg2} />
+                <InputBox handleChange={handleChange3} msg={msg3} />
             </NewPWBox>
 
         </BoxContainer>

@@ -43,15 +43,21 @@ align-items: center;
 
 function HeaderBox(props) {
 
+    // naviagtor for moving to another page
     const navi = useNavigate();
 
     return (
 
         <>
 
+            {/* define container that will store header text and 
+            button that will move page to the previous page*/}
             <Head>
 
+                {/* when clicking before button, it will move to the previous page */}
                 <ImgBox><Image src={img} onClick={() => navi(-1)} /></ImgBox>
+                {/* text will be shown depending on props data. For each following and follower
+                text will be shown differently */}
                 <Text>{props.text}</Text>
 
             </Head>

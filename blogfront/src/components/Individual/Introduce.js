@@ -1,10 +1,10 @@
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 import editIcon from "./editIcon.png";
 import calanderIcon from "./calanderIcon.png";
 import settingIcon from "./settingIcon.png";
 import bedgeIcon from "./bedgeIcon.png";
-import { useNavigate } from "react-router-dom";
 
 const IntroduceDiv = styled.div`
     display : grid;
@@ -61,6 +61,7 @@ const ButtonImg = styled.img`
     max-width: 3rem;
     width : 10%;
     aspect-ratio: 1/1;
+    cursor: pointer;
 `
 
 function Introduce(props) {
@@ -79,11 +80,11 @@ function Introduce(props) {
                         <td>게시물</td>
                         <td>{props.postcount.toLocaleString('ko-KR')}</td>
                     </tr>
-                    <tr onClick={()=>navigate('/follower')}>
+                    <tr onClick={()=>navigate('/follower')} style={{cursor:"pointer"}}>
                         <td>팔로워</td>
                         <td>{props.follower.toLocaleString('ko-KR')}</td>
                     </tr>
-                    <tr onClick={()=>navigate('/following')}>
+                    <tr onClick={()=>navigate('/following')} style={{cursor:"pointer"}}>
                         <td>팔로잉</td>
                         <td>{props.following.toLocaleString('ko-KR')}</td>
                     </tr>

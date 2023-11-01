@@ -22,7 +22,6 @@ const CategoryHeader = styled.div`
 font-size: 12pt;
 font-family: KakaoBold;
 color: #FFFFFF;
-font-weight: bold;
 margin-left: 60px;
 margin-top: 25px;
 `;
@@ -206,9 +205,8 @@ const AddButton = styled.button`
   align-items: center;
   margin-bottom: 20px;
   font-family: KakaoBold;
-  font-weight: bold;
   font-size: 10pt;
-`;
+`
 
 function ManagePost() {
 
@@ -232,7 +230,6 @@ function ManagePost() {
   const closeWindow3 = (val) => {
 
     setClick3(val)
-
   }
 
   return (

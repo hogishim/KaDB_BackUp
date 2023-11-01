@@ -1,6 +1,6 @@
 import img1 from './temp1.png'
 
-
+//temporary data for following user
 
     let following_data = [
 

@@ -5,6 +5,7 @@ function Integrated() {
     return (
 
         <>
+        {/* bring FollowerPopUp */}
             <FollowerPopUp />
 
 

@@ -35,18 +35,21 @@ display: flex;
 
 `
 
-function MappingContainer(){
+function MappingContainer() {
 
+    //navigator for moving to another page
     const navi = useNavigate();
 
     return (
-    
-    <Container>
-        <Container1 onClick={()=>{navi("/follower")}}>팔로워 확인</Container1>
-        <Container2 onClick={()=>{navi("/following")}}>팔로잉 확인</Container2>
 
+        //For each box, it will be mapped to follower or following when pressed
+        <Container>
+            {/* when clicked, it will be moved to page that will show follower */}
+            <Container1 onClick={() => { navi("/follower") }}>팔로워 확인</Container1>
+            {/* when clicked, it will be moved to page that will show the following */}
+            <Container2 onClick={() => { navi("/following") }}>팔로잉 확인</Container2>
 
-    </Container>
+        </Container>
 
     )
 }

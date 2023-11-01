@@ -38,7 +38,8 @@ function PutPW(props) {
 
         <PWInputBox>
 
-            <Input type="password" id="pw" onChange={handleChange}placeholder={str[Number(props.id)]}/>
+            <Input type="password" id="pw" 
+            onChange={handleChange} placeholder={str[Number(props.id)]}/>
 
         </PWInputBox>
 

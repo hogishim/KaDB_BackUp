@@ -50,7 +50,6 @@ function BadgeBar() {
             <Container>
                 {/* setting할 수 있는 메뉴를 불러오는데 props를 이용하여 설정 */}
 
-
                 <SettingBox>
                 <MappingContainer />
                     <HeaderBox headerText="뱃지 신청" />
@@ -58,6 +57,7 @@ function BadgeBar() {
                       <BadgeBox img={img1}/>
                       <BadgeBox img={img2}/>
                     </RequestBadge>
+                    
                 </SettingBox>
 
             </Container>

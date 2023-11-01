@@ -29,13 +29,13 @@ width: 70%;
 
 let Image = styled.img`
 
-width: 40%;
+  width: 50%;
   height: auto;
   margin: 10px;
 
 &:hover{
 
-    width: 50%;
+    width: 60%;
   height: auto;
   margin: 10px;
   transition: all 1s;

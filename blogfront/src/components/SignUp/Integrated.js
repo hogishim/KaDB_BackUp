@@ -24,19 +24,21 @@ const Logo = styled.img`
     height : 15rem;
     margin-bottom : 3rem;
 `
-async function postsignup(id, password,email){
-    await axios.post(url+'user/signup',{
-        id : id,
+async function postsignup(id, password,email,phonenum,birthday){
+    const postBirthday = new Date(birthday)
+    const postData = {
+        userid : id,
         password : password,
         email : email,
+        phone : phonenum,
+        birthday : postBirthday
     }
-    )
+    await axios.post(url+'user/signup',postData,{headers:{'Content-Type':'application/json'}})
     .then((response)=>{
         console.log('signup axios post 응답 : ' + response)
     })
     .catch((error)=>{
         console.log('signup axios post 에러 : ' + error)
-        console.log(id,password,email)
     })
 }
 function SignUp(){
@@ -44,6 +46,8 @@ function SignUp(){
     const [password, setPassword] = useState('')
     const [passwordcheck, setPasswordcheck] = useState('')
     const [email, setEmail] = useState('')
+    const [phonenum, setPhonenum] = useState('')
+    const [birthday, setBirthday] = useState('')
 
     const checkpassword = (origin, check)=>{
         return !(origin===check)
@@ -58,10 +62,10 @@ function SignUp(){
                 checkpassword(password, passwordcheck)&&<div style={{color:"red"}}>비밀번호가 맞지 않습니다.</div>
             }
             <InputBox src={emailIcon} text="E-mail" type="text" setValue={setEmail}/>
-            <InputBox src={IDIcon} text="PHONE NUMBER" type="text"/>
-            <InputBox src={IDIcon} text="YYYY/MM/DD" type="text"/>
+            <InputBox src={IDIcon} text="PHONE NUMBER" type="text" setValue={setPhonenum}/>
+            <InputBox src={IDIcon} type="date" setValue={setBirthday}/>
             <InputBox src={IDIcon} text="FAVORITE PLACE(OPTION)" type=""/>
-            <Button text="회원가입" onClick={()=>{postsignup(id,password,email)}}/>
+            <Button text="회원가입" onClick={()=>{postsignup(id,password,email,phonenum,birthday)}}/>
         </PWResetLDiv>
     )
 }

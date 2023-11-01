@@ -9,7 +9,9 @@ import Head from "./Head";
 import { useNavigate } from "react-router-dom";
 
 const MainDiv = styled.div`
-    width: 50rem;
+    width: 80%;
+    min-width: 30rem;
+    margin : 0 auto;
 `
 const ContentsDiv = styled.div`
     background-color: white;

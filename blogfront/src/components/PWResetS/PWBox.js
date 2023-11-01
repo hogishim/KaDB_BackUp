@@ -8,6 +8,7 @@ import HeaderBox from '../Setting/HeaderBox';
 
 let Container = styled.div`
 
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,14 +33,13 @@ let PWContainer = styled.div`
     align-items: center;
     justify-content: center;
 
-
-
 `
 
 let ButtonContainer = styled.div`
 
 flex-grow: 10;
 width: 100%;
+height: 10vh;
 
 `
 
@@ -56,10 +56,9 @@ function PWBox() {
 
     let [btnVisibility, setBtnVisbility] = useState(false);
 
-    const onVisibilityChange = (visibility) =>{
+    const onVisibilityChange = (visibility) => {
 
         setBtnVisbility(visibility)
-        console.log(visibility)
 
     }
 
@@ -71,9 +70,9 @@ function PWBox() {
                 {/* setting할 수 있는 메뉴를 불러오는데 props를 이용하여 설정 */}
                 <PWContainer>
 
-
                     <MappingContainer />
-                    <HeaderBox headerText="비밀번호 재설정"/>
+                    <HeaderBox headerText="비밀번호 재설정" />
+
 
                     <PWBoxContainer onVisibilityChange={onVisibilityChange} />
 
@@ -82,10 +81,12 @@ function PWBox() {
                             <Button />
                         </ButtonBox>
                     </ButtonContainer>
+
                 </PWContainer>
 
             </Container>
         </>
+        
     )
 
 }

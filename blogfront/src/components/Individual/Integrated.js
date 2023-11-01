@@ -6,6 +6,7 @@ import Profile from "./Profile"
 import Introduce from "./Introduce";
 import PostList from "./PostList";
 import Sort from "./sort";
+import { useNavigate } from "react-router-dom";
 
 const IndividualDiv = styled.div`
     margin : 5rem;
@@ -21,6 +22,7 @@ const PostListDiv = styled.div`
 `
 
 function Individual() {
+    const navi = useNavigate();
     const [toggle, setToggle] = useState(false);
     const categoryList = [
         '좋아요',
@@ -91,7 +93,7 @@ function Individual() {
                 />
             </ProfileIntroduceDiv>
             <Sort toggle={toggle} setToggle={setToggle} category={category} setCategory={setCategory} categoryList={categoryList}/>
-            <PostListDiv>
+            <PostListDiv onClick={()=>{navi("/managepost")}}>
                 {
                     categorySort()
                 }

@@ -5,7 +5,7 @@ function Integrated() {
     return (
 
         <>
-
+            {/* will call popup that will show follower data */}
             <FollowerPopUp />
 
 

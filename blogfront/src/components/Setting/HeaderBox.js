@@ -3,7 +3,6 @@ import BackToSet from './BackToSet'
 
 let HeaderContainer = styled.div`
 
-flex-grow: 10;
 justify-content: center;
 width: 100%;
 height: 10vh;
@@ -12,6 +11,7 @@ flex-direction: row;
 
 
 `
+
 let H = styled.div`
 
 flex-grow: 7;
@@ -39,16 +39,15 @@ function HeaderBox(props) {
         <HeaderContainer>
 
             <H>{props.headerText}</H>
+
             <ImgBox2>
                 <BackToSet />
             </ImgBox2>
             
         </HeaderContainer>
 
-
     )
 
-
-
 }
+
 export default HeaderBox;
