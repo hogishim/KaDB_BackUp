@@ -80,9 +80,9 @@ function List() {
     ]
     return (
         <TotalListDiv>
-            {listdata.map((listdata) => {
+            {listdata.map((listdata,id) => {
                 return (
-                    <ListDiv>
+                    <ListDiv key={id}>
                         <Img src={listdata.src} />
                         <div>
                             <Title>▶︎ {listdata.title}</Title>

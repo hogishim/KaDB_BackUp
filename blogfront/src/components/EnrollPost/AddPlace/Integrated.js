@@ -5,7 +5,7 @@ function Integrated(props){
 
 return(
 <>
-<PlacePopUp closeWindow={props.closeWindow2} />
+<PlacePopUp closeWindow={props.closeWindow2} addBox={props.addBox} setPlace={props.setPlace}/>
 </>
 )
 }

@@ -24,6 +24,7 @@ import EnrollPost from './components/EnrollPost/Integrated';
 import ManagePost from './components/ManagePost/Integrated';
 import RouteView from './components/RouteView/Integrated';
 import ManageRoute from './components/ManageRoute/Integrated'
+import RouteEdit from './components/RouteEdit/Integrated';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -48,6 +49,7 @@ root.render(
           <Route path="managepost" element={<ManagePost/>}/>
           <Route path="routeview" element={<RouteView />} />
           <Route path="manageroute" element={<ManageRoute />}/>
+          <Route path="routeedit" element={<RouteEdit />}/>
 
         </Route>
 

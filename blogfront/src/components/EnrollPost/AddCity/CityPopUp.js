@@ -8,52 +8,42 @@ import Button from './Button'
 import img from './Source/search.png'
 import HeaderContainer from '../HeaderContainer';
 
-let Container = styled.div`
+const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 100vh;
     position: absolute;
     top: 0;
     left: 20;
 `;
 
-let CityBox = styled.div`
+const CityBox = styled.div`
     justify-content: center;
     align-items: center;
-    width: 45rem;
-    height: 60vh;
+    width: 50vw;
+    height: 70vh;
     text-align: center;
     background-color: lavenderblush;
     border: 0;
     border-radius: 20px;
-    
     box-shadow: 5px 5px 5px 5px grey;
 `;
 
-let CityContainer = styled.div`
+const CityContainer = styled.div`
 
-height: 40vh;
+height: 45vh;
 overflow-y: auto;
 background-color: 	#F9FFFF;
 `
 
-let HR = styled.div`
+const HR = styled.div`
 
 border-bottom: 1px solid black;
 
 `
 
-let HeaderBox = styled.div`
-    display: flex;
-    height: 2.5rem;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-
-`
-let SelectionContainer = styled.div`
+const SelectionContainer = styled.div`
 
 padding-left: 15px;
 padding-bottom: 15px;
@@ -62,18 +52,28 @@ display: flex;
 
 `
 
-let Img = styled.img`
+const Img = styled.img`
 
 height: 30px;
 
 `
-let SearchContainer = styled.div`
+const SearchContainer = styled.div`
 
 width: 250px;
 display: flex;
 background-color: white;
 justify-content: center;
 align-items: center;
+
+`
+const ButtonContainer = styled.div`
+
+height: 10vh
+width: 50vw;
+display: flex;
+justify-content: center;
+align-items: center;
+
 
 `
 
@@ -107,10 +107,12 @@ function CityPopUp(props) {
                 </SelectionContainer>
                 <HR />
                 <CityContainer>
-                    <CityInfo info={info} nation={nation} />
+                    <CityInfo info={info} nation={nation} setCity = {props.setCity} />
                 </CityContainer>
                 <HR />
-                <Button colour="#ffa0af" text="제출하기" closeWindow={props.closeWindow}/>
+                <ButtonContainer>
+                <Button colour="#ffa0af" text="제출하기" closeWindow={props.closeWindow} addContainer={props.addContainer}/>
+                </ButtonContainer>
             </CityBox>
         </Container>
     );

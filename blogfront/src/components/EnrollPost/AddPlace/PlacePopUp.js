@@ -20,42 +20,34 @@ let Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 100vh;
 `;
 
 let CityBox = styled.div`
 
     box-shadow: 5px 5px 5px 5px grey;
     width: 45rem;
-    height: 60vh;
+    height: 70vh;
     text-align: center;
     background-color: lavenderblush;
     border-radius: 20px;
    
 `;
 
-let HeaderBox = styled.div`
-    display: flex;
-    height: 2.5rem;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-
-`
 
 let SelectionBox = styled.div`
 
 margin-left: 20px;
 display: flex;
 padding: 7px;
+height: 5vh;
 
 `
 let SearchBox = styled.div`
 
 margin-left: 20px;
 padding: 7px;
-
+height: 5vh;
 justify-content: center;
 align-items: center;
 
@@ -78,7 +70,7 @@ height: 20px;
 
 let BtnContainer = styled.div`
 
-height: 4rem;
+height: 10vh;
 border-top: 1px solid black;
 display:flex;
 
@@ -170,14 +162,14 @@ function PlacePopUp(props) {
                     </SearchBarContainer>
                 </SearchBox>
                 <HR />
-                <PlaceContainer city={ct} place={plc} />
+                <PlaceContainer city={ct} place={plc} setPlace={props.setPlace}/>
                 <BtnContainer>
                     <Button color="#ffd700" text="신규 등록"
                     onClickChange={onClickChange}
                     
                     />
                     <EmptyBox />
-                    <Btn onClick={()=>{props.closeWindow(false)}}>제출하기</Btn>
+                    <Btn onClick={()=>{ props.addBox(); props.closeWindow(false)}}>제출하기</Btn>
 
                 
                 </BtnContainer>

@@ -12,6 +12,7 @@ import profileIcon from "./profileIcon.png"
 import homeIcon from "./whiteHomeIcon.png"
 import searchIcon from "./whiteSearchIcon.png"
 import { useState } from "react";
+import Category from "./category";
 
 const HomepageLogo = styled.img`
     width : 7rem;
@@ -27,6 +28,7 @@ const BackDiv = styled.div`
     flex-direction : column;
     justify-content: space-between;
     align-items : center;
+    z-index: 1;
 `
 const SignDiv = styled.div`
     display : flex;
@@ -40,12 +42,12 @@ const MenuDiv = styled.div`
 `
 const SearchDiv = styled.div`
     position:relative;
-    z-index: 10;
 `
 
 function NavBar(props) {
     const navigate = useNavigate()
     const [toggleSearch, setToggleSearch] = useState(false)
+    const [toggleCategory, setToggleCategory] = useState(false)
     return (
         <BackDiv>
             <HomepageLogo src={homepageLogoIcon} />
@@ -54,10 +56,12 @@ function NavBar(props) {
                 <MenuButton text="HOME" src={homeIcon} onClick={() => navigate('/main')} />
                 <MenuButton text="PROFILE" src={profileIcon} onClick={() => navigate('/individual')} />
                 <SearchDiv>
-                    <MenuButton text="SEARCH" src={searchIcon} onClick={(e) => { 
-                            setToggleSearch(!toggleSearch) 
-                        }}/>
-                    {toggleSearch&&<Input/>}
+                    <MenuButton text="SEARCH" src={searchIcon} onClick={() => setToggleSearch(!toggleSearch) }/>
+                    {toggleSearch&&<Input onKeyDown={()=>{setToggleSearch(false)}}/>}
+                </SearchDiv>
+                <SearchDiv>
+                    <MenuButton text="CATEGORY" src={searchIcon} onClick={()=>setToggleCategory(!toggleCategory)}/>
+                    { toggleCategory&&<Category/>}
                 </SearchDiv>
             </MenuDiv>
             <SignDiv>

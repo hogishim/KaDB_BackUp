@@ -1,3 +1,5 @@
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 
 const InputDiv = styled.div`
@@ -44,13 +46,22 @@ const InputInput = styled.input`
     outline: none;
     border: none;
 `
-function Input (){
+function Input (props){
+    const navigator = useNavigate()
+    const [searchInput,setSearchInput] = useState('')
     const searchHandler=()=>{
-        
+        navigator('/bloglist?search='+searchInput)
     }
+    const onKeyUpHandler=(e)=>{
+        if(e.key === 'Enter'){
+            searchHandler();
+            props.onKeyDown()
+        }
+    }
+
     return(
         <InputDiv>
-            <InputInput onKeyUp={()=>{if(window.event.keyCode==13){searchHandler()}}}/>
+            <InputInput onKeyDown={(e)=>onKeyUpHandler(e)} onChange={(e)=>setSearchInput(e.target.value)}/>
         </InputDiv>
     )
 }

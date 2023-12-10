@@ -1,8 +1,10 @@
 import styled from "styled-components";
+import qs from 'qs';
 
 import Input from "./Input/Input";
 import Banner from "./Banner";
 import List from "./List";
+import { useLocation } from "react-router-dom";
 
 const BlogListDiv = styled.div`
     display : flex;
@@ -12,9 +14,11 @@ const BlogListDiv = styled.div`
 `
 
 function BlogList(){
+    const location = useLocation();
+    const searchInput = qs.parse(location.search,{ignoreQueryPrefix:true})
     return(
         <BlogListDiv>
-            <Input/>
+            <Input searchValue={searchInput.search}/>
             <Banner/>
             <List/>
         </BlogListDiv>

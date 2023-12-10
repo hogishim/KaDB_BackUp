@@ -1,88 +1,40 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import styled from "styled-components";
+import CommentBoxContainer from "./CommentBoxContainer";
+import PostBoxContainer from "./PostBoxContainer";
+import TitleBoxContainer from "./TitleBoxContainer";
+import InfoContainer from "./InfoContainer";
 
 const Container = styled.div`
+  width: calc(100vw - 8.1rem);
   display: flex;
   flex-direction: column;
-  background-color: #CF6E36;
+  background-color: #cf6e36;
 `;
 
 const SiteName = styled.h1`
- font-family: KakaoBold;
- font-size: 50pt;
- color: #FAF4C0;
- margin-top: 10px;
- margin-left: 20px;
- font-weight: bold;
+  font-family: KakaoBold;
+  font-size: 50pt;
+  color: #faf4c0;
+  margin-top: 10px;
+  margin-left: 20px;
+  font-weight: bold;
 `;
 
 const BlogDescription = styled.div`
   font-size: 12pt;
   font-family: KakaoRegular;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-left: 20px;
   margin-top: 5px;
 `;
 
-
-const Schedule = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin-left: 20px;
-`;
-
-const ScheduleTitle = styled.div`
-  font-size: 12pt;
-  font-family: KakaoBold;
-  color: #FFFFFF;
-  font-weight: bold;
-  text-decoration: 2px yellow underline;
-  margin-left: 120px;
-  margin-top: 30px;
-`;
-
-
-const ScheduleBox = styled.div`
-  background-color: #FFFFFF;
-  color: #000000;
-  padding: 20px 100px;
-  border-radius: 50px;
-  margin: 20px 10px;
-  font-family: KakaoBold;
-  font-size: 10pt;
-  font-weight: bold;
-  margin-left: 80px;
-`;
-
-const Copybutton = styled.button`
-  background-color: #FFFFFF;
-  color: #000000;
-  font-family: KakaoBold;
-  font-size: 10pt;
-  border-radius: 50px;
-  padding: 20px 40px;
-  margin: 20px 10px;
-  font-weight: bold;
-  text-shadow: 2px 2px 2px gray;
-  position: absolute;
-  right: 90px;
-`;
-
-const PostTitle = styled.div`
-  font-size: 12pt;
-  font-family: KakaoBold;
-  color: #FFFFFF;
-  font-weight: bold;
-  text-decoration: 2px yellow underline;
-  margin-left: 120px;
-  margin-top: 20px;
-`;
-
 const Posts = styled.div`
+width: 75vw;
   display: flex;
   margin-top: 10px;
   flex-direction: column;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   margin: 20px 20px;
   margin-left: 100px;
   margin-right: 100px;
@@ -90,117 +42,9 @@ const Posts = styled.div`
   padding: 10px 10px;
 `;
 
-const PostBox = styled.div`
-  margin-top: 20px;
-  background-color: #F2F2F2;
-  margin-left: 20px;
-  border-radius: 10px;
-  margin: 20px 20px;
-  padding: 10px 10px;
-`;
-
-const PostBoxTitle = styled.div`
-  font-family: KakaoBold;
-  font-size: 12pt;
-  font-weight: bold;
-  margin-left: 20px;
-  margin-top: 20px;
-  margin: 20px 22px;
-`;
-
-const PostItemBox = styled.div`
-  background-color: #FFFFFF;
-  margin-left: 20px;
-  margin-top: 20px;
-  margin: 20px 20px;
-  border-radius: 10px;
-  padding: 10px 10px;
-`;
-
-const PostItemTitle = styled.div`
-  font-family: KakaoBold;
-  font-size: 12pt;
-  font-weight: bold;
-  margin-left: 20px;
-  margin-top: 10px;
-  margin: 10px 20px;
-`;
-
-const PostItem = styled.div`
-  font-family: KakaoRegular;
-  font-size: 10pt;
-  color: #000000;
-  margin-left: 20px;
-  margin: 20px 22px;
-`;
-
-const PostItemImage = styled.img`
-  width: 200px;
-  height: 150px;
-  margin-top: 20px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-`;
-
-const SummaryItem = styled.div`
-  font-family: KakaoBold;
-  font-size: 12pt;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 20px;
-  margin: 20px auto;
-`;
-
-const Tags = styled.div`
-  display: flex;
-  margin-top: 20px;
-  margin-left: 20px;
-  flex-direction: row;
-  margin: 10px 20px;
-`;
-
-const TagBox = styled.div`
-  background-color: #1EFFF1;
-  color: #000000;
-  font-family: KakaoRegular;
-  font-size: 10pt;
-  padding: 10px 20px;
-  border-radius: 50px;
-  margin-left: 10px;
-`;
-
-const subs = styled.div`
-  margin-top: 50px;
-  display: flex;
-  flex-direction: row;
-  position: absolute;
-`;
-
-const HeartButton = styled.button`
-  background-color: #FFD9FA;
-  font-family: KakaoRegular;
-  font-size: 10pt;
-  padding: 10px 20px;
-  border-radius: 50px;
-  margin-left: 100px;
-  color: #000000;
-  border: none;
-`;
-
-const HideButton = styled.button`
-  background-color: #FFFFFF;
-  color: #000000;
-  font-size: 10pt;
-  padding: 10px 20px;
-  border-radius: 50px;
-  position: absolute;
-  right: 100px;
-  border: none;
-`;
-
 const CommentBox = styled.div`
-  background-color: #FEF0F9;
+  width: 75vw;
+  background-color: #fef0f9;
   border-radius: 10px;
   margin: 10px 20px;
   margin-left: 100px;
@@ -208,166 +52,58 @@ const CommentBox = styled.div`
   padding: 8px 10px;
   display: flex;
   flex-direction: column;
+  visibility: ${(props) => props.visibility};
 `;
 
 const CommentContainer = styled.div`
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
-  margin: 8px 10px;
 `;
 
-const Comments = styled.div`
-  background-color: #FFFFFF;
-  border-radius: 20px;
-  padding: 10px 10px;
-  margin: 8px 8px;
-  display: flex;
-  flex-direction: row;
-  border: 2px solid black;
-`;
+const ContentContainer = styled.div`
 
-const Profiles = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
-  margin-left: 10px;
-  align-items: center;
-`;
+display: flex;
+flex-direction: column;
+align-items: center;
 
-const Profile = styled.img`
-  weight: 70px;
-  height: 70px;
-  border-radius: 50%;
-  margin: 10px 10px;
-  border: 2px solid black;
-`;
 
-const Nickname= styled.div`
-  margin: 5px 15px;
-  font-family: KakaoRegular;
-  font-size: 8pt;
-  margin-bottom: 10px;
-`;
 
-const CommentItem = styled.div`
-  color: #000000;
-  font-family: KakaoRegular;
-  font-size: 10pt;
-  margin: 50px 20px;
-`;
+`
 
-const HeartItem = styled.div`
-  position:absolute;
-  right: 100px;
-  margin-right: 40px;
-  margin-top: 0px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
 
-const HeartIcon = styled.div`
-  margin-top: 8px;
-  margin-right: 10px;
-`;
-
-const HeartCount = styled.div`
-  margin-top: 5px;
-  margin-right: 10px;
-  font-family: KakaoRegular;
-  font-size: 9pt;
-`;
 
 function IndividualBlogPost() {
+  const [visbility, setVisibility] = useState("visible");
+
+  const changeVisbility = (value) => {
+    setVisibility(value);
+  };
+
   return (
     <Container>
-      <div>
-        <div>
-          <SiteName>Trip Again</SiteName>
-          <BlogDescription>좌충우돌 세계일주 여행기</BlogDescription>
-        </div>
-        <div>
+      <SiteName>Trip Again</SiteName>
+      <BlogDescription>좌충우돌 세계일주 여행기</BlogDescription>
 
-        <ScheduleTitle>SCHEDULE</ScheduleTitle>
-        <Schedule>
-        <ScheduleBox>Europe 2019.07.07 ~ 2019.08.13 영국 아일랜드 프랑스 스위스 오스트리아 체코</ScheduleBox>
-        <Copybutton>일정 복사하기</Copybutton>
-        </Schedule>
-        </div>
-        <div>
-        <PostTitle>POST</PostTitle>
+
+        <TitleBoxContainer />
+
+        <ContentContainer>
+        
         <Posts>
-          <PostBox>
-            <PostBoxTitle>1일차 인천 - 런던</PostBoxTitle>
-            <PostItemBox>
-              <PostItemTitle>인천 국제 공항 - 비용 12,000원</PostItemTitle>
-              <PostItem>
-              공항으로 가는 길은 언제나 설레요... 저는 항상 출국하는 날에는 설레서 잠을 못이룹니다.
-              비행 3시간 전에 도착을 해야 하기 때문에, 8시에 출발하는 막차를 타고 9시쯤 도착해 체크인을 마쳤습니다.
-              마침내 0시 20분 비행기에 탑승하였고, 0시 55분 비행기는 이륙했습니다!
-              </PostItem>
-            <PostItemImage src = "Incheon.jpg" alt = "Incheon" />
-            </PostItemBox>
-            <SummaryItem>대한항공 / 13시간 소요 / 비용 1,400,000원</SummaryItem>
-            <PostItemBox>
-              <PostItemTitle>런던 히스로 공항 - 비용 14,000원</PostItemTitle>
-              <PostItem>
-              우리 비행기는 12시간의 긴 비행 끝에 영국 런던 히스로 국제 공항에 도착했습니다. 우리나라 사람은 자동출입국 심사가 가능해서 바로 들어갈 수 있었어요!
-              </PostItem>
-            </PostItemBox>
-            <Tags>
-              <TagBox>#런던</TagBox>
-              <TagBox>#공항</TagBox>
-            </Tags>
-          </PostBox>
+          <PostBoxContainer />
         </Posts>
-        <subs>
-          <HeartButton>❤️ 102  </HeartButton>
-          <HideButton>댓글 숨기기</HideButton>
-        </subs>
-        <CommentBox>
+
+        <InfoContainer changeVisbility={changeVisbility} />
+
+        <CommentBox visibility={visbility}>
           <CommentContainer>
-          <Comments>
-            <Profiles>
-            <Profile src="Profile1.jpg" alt="Profile1"/>
-            <Nickname>무당이</Nickname>
-            </Profiles>
-            <CommentItem>너무 유용한 게시물이었어요. 추천해주신 음식점 가서 너무 맛있게 먹고 왔습니다.</CommentItem>
-            <HeartItem>
-              <HeartIcon>❤️</HeartIcon>
-              <HeartCount>3</HeartCount>
-            </HeartItem>
-          </Comments>
-          <Comments>
-          <Profiles>
-            <Profile src="Profile2.jpg" alt="Profile2"/>
-            <Nickname>피치</Nickname>
-            </Profiles>
-            <CommentItem>잘 봤습니다! 정말 좋은 글이네요 다음에도 좋은 글 부탁드려요</CommentItem>
-            <HeartItem>
-              <HeartIcon>❤️</HeartIcon>
-              <HeartCount>10</HeartCount>
-            </HeartItem>
-          </Comments>
-          <Comments>
-          <Profiles>
-            <Profile src="Profile3.jpg" alt="Profile3"/>
-            <Nickname>루피</Nickname>
-            </Profiles>
-            <CommentItem>다음에 여행 갈 때 한번 가봐야겠어요! 추천합니다</CommentItem>
-            <HeartItem>
-              <HeartIcon>❤️</HeartIcon>
-              <HeartCount>15</HeartCount>
-            </HeartItem>
-          </Comments>
+            <CommentBoxContainer />
           </CommentContainer>
         </CommentBox>
-      </div>
-      </div>
+      </ContentContainer>
     </Container>
   );
-};
+}
 
 export default IndividualBlogPost;
-

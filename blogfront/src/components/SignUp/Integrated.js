@@ -10,13 +10,13 @@ import IDIcon from "./IDIcon.png";
 import passwordIcon from "./passwordIcon.png";
 import logoIcon from "./logoIcon.png";
 import emailIcon from "./emailIcon.png"
+import { useNavigate } from "react-router-dom";
 
 const PWResetLDiv = styled.div`
+    padding : 5rem 0;
     display : flex;
     flex-direction : column;
     align-items : center;
-    width : 100%;
-    height: 100vh;
     background-color : #09006B;
 `
 const Logo = styled.img`
@@ -24,23 +24,6 @@ const Logo = styled.img`
     height : 15rem;
     margin-bottom : 3rem;
 `
-async function postsignup(id, password,email,phonenum,birthday){
-    const postBirthday = new Date(birthday)
-    const postData = {
-        userid : id,
-        password : password,
-        email : email,
-        phone : phonenum,
-        birthday : postBirthday
-    }
-    await axios.post(url+'user/signup',postData,{headers:{'Content-Type':'application/json'}})
-    .then((response)=>{
-        console.log('signup axios post 응답 : ' + response)
-    })
-    .catch((error)=>{
-        console.log('signup axios post 에러 : ' + error)
-    })
-}
 function SignUp(){
     const [id,setId] = useState('')
     const [password, setPassword] = useState('')
@@ -48,6 +31,27 @@ function SignUp(){
     const [email, setEmail] = useState('')
     const [phonenum, setPhonenum] = useState('')
     const [birthday, setBirthday] = useState('')
+    const navigator = useNavigate()
+
+    async function postsignup(id, password,email,phonenum,birthday){
+        const postBirthday = new Date(birthday)
+        const postData = {
+            userid : id,
+            password : password,
+            email : email,
+            phone : phonenum,
+            birthday : postBirthday
+        }
+        await axios.post(url+'user/signup',postData,{headers:{'Content-Type':'application/json'}})
+        .then((response)=>{
+            console.log('signup axios post 응답 : ' + response)
+            navigator('/main')
+        })
+        .catch((error)=>{
+            console.log('signup axios post 에러 : ' + error)
+            alert("회원가입 실패")
+        })
+    }
 
     const checkpassword = (origin, check)=>{
         return !(origin===check)

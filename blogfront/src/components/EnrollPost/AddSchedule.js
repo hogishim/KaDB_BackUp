@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import styled from "styled-components";
 
 const PostBox = styled.div`
@@ -38,9 +39,16 @@ const PostItem = styled.div`
   font-family: KakaoRegular;
   font-size: 10pt;
   color: #000000;
-  width: 80%;
-  margin: 20px 22px;
+  width: 100%;
+  margin: 20px auto;
 `;
+const PostText = styled.textarea`
+  border: none;
+  resize: none;
+  width: 100%;
+  background-color: aliceblue;
+  outline: none;
+`
 
 const AddImageBox = styled.div`
   border: 1px dashed #333;
@@ -92,17 +100,22 @@ const ManageButton = styled.button`
 `
 
 function AddSchedule(props) {
+  const textref = useRef()
+  const handleResizeHeight = ()=>{
+    textref.current.style.height = 'auto'
+    textref.current.style.height = textref.current.scrollHeight + 'px'
+  }
     return (
         <PostBox>
             <PostBoxTitle>{props.id+1}일차</PostBoxTitle>
             <DelButton onClick={()=>{props.delete(props.id)}}>&#10060;</DelButton>
             <PostItemBox>
-                <PostItem>
-                  <textarea></textarea>
-                </PostItem>
                 <AddImageBox>
                     <AddImage src="AddImg.jpg" alt="AddImg" />
                 </AddImageBox>
+                <PostItem>
+                  <PostText rows={1} ref={textref}onChange={()=>handleResizeHeight()}/>
+                </PostItem>
             </PostItemBox>
             <Manages>
                 <TagButton>#태그 추가</TagButton>

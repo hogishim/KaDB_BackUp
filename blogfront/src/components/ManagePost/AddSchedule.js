@@ -27,7 +27,7 @@ const SaveButton = styled.button`
   position: absolute;
   top: 22px;
   right: 40px;
-  z-index: 1;
+  z-index: 0;
   font-family: KakaoBold;
   font-size: 10pt;
   font-weight: bold;

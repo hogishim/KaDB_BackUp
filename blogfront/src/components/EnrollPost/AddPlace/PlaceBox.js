@@ -27,6 +27,7 @@ let ImageContainer = styled.div`
 margin-left: 20px;
 
 `
+
 let TextContainer = styled.div`
 
 margin-left: 20px;
@@ -56,7 +57,7 @@ function PlaceBox(props) {
                     return (
                         <ContainerBox
                             isSelected={idx === selectedIdx}
-                            onClick={() => handleBoxClick(idx)}
+                            onClick={() => {handleBoxClick(idx); props.setPlace(a.place)}}
                             key={idx}>
                             <ImageContainer>
                                 <Img src={a.img}></Img>

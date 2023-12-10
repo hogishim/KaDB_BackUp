@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import searchIcon from "./searchIcon.png";
 import deleteIcon from "./deleteIcon.png";
+import { useEffect, useState } from "react";
 
 const InputBarDiv = styled.div`
     display : flex;
@@ -34,12 +35,25 @@ const DeleteIcon = styled(Icons)`
     margin-right : 1rem;
 `
 
-function Input(){
+function Input(props){
+    const [inputData,setInputData] = useState(props.searchValue)
+    const delHandler = ()=>{
+        console.log(inputData)
+        setInputData('')
+    }
+    useEffect(()=>{
+        setInputData(props.searchValue)
+    },[props.searchValue])
     return(
         <InputBarDiv>
             <SearchIcon src={searchIcon}/>
-            <InputBar placeholder="가고 싶은 여행지를 검색해보세요! ex) 서울, 뉴욕, 도쿄"/>
-            <DeleteIcon src={deleteIcon}/>
+            <InputBar 
+                type="text" 
+                value={inputData} 
+                placeholder="가고 싶은 여행지를 검색해보세요! ex) 서울, 뉴욕, 도쿄"
+                onChange={(e)=>setInputData(e.target.value)}
+            />
+            <DeleteIcon src={deleteIcon} onClick={()=>delHandler()}/>
         </InputBarDiv>
     )
 }

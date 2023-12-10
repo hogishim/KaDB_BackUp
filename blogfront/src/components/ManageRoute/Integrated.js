@@ -1,21 +1,30 @@
-import { useNavigate } from 'react-router-dom';
+
 import styled from 'styled-components'
+import Header from './Header'
+import InfoContainer from './InfoContainer';
 
-let Button = styled.button`
+const Container = styled.div`
 
-width: 500px;
-height: 500px;
+  display: flex;
+  width: calc(100vw - 8.1rem);
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: #CF6E36;
+  
 
-`
+`;
 
-function ManageRoute(){
-
-const navi = useNavigate();
+function ManageRoute() {
 
 
-return <Button onClick={()=>{navi('/routeview')}}>루트 확인으로 이동하기</Button>
+    return (
 
+        <Container>
+            <Header />
+            <InfoContainer />
+        </Container>
 
+    )
 
 }
 export default ManageRoute;

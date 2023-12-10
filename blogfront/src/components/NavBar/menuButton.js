@@ -16,9 +16,7 @@ const MenuText = styled.div`
 `
 function MenuButton (props){
     return(
-        <MenuDiv onClick={(e)=>{
-                props.onClick()
-            }}>
+        <MenuDiv onClick={()=>props.onClick()}>
             <MenuImg src={props.src}/>
             <MenuText>{props.text}</MenuText>
         </MenuDiv>

@@ -59,8 +59,10 @@ width: 50px;
 function FollowComponent(props) {
 
     return (
+        // shows data of following/follower user, using data of props
         props.data.map(function (a) {
             return (
+                //cotainer box that contains image, name of following/follower
                 <FollowerContainer>
                     <ImgBox>
                         <ImgSrc src={a.img} alt={a.name} />
@@ -69,9 +71,12 @@ function FollowComponent(props) {
                         <h5>{a.name}</h5>
                     </NameBox>
                     <Btn
+                        // set button colour as colour from props
                         bgcolour={props.colour}
                         onClick={() => {
+                            //if clicked, it will call function that will deleted the clicked user from the list
                             const updatedData = props.data.filter(item => item.name !== a.name);
+                            //hand updated data to the higher component
                             props.onButtonClick(updatedData);
                         }}>{props.text}</Btn>
                 </FollowerContainer>

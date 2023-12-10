@@ -2,13 +2,13 @@ import styled from 'styled-components';
 import { useState } from 'react';
 
 let CityIfBox = styled.div`
-    width: 20rem;
+    width: 45%;
     height: 200px;
     border: 0;
     border-radius: 10px;
-    margin: 10px;
+    margin-top: 10px;
     padding: 10px;
-    background: snow;
+    background: #F1F5FF;
 
     ${(props) =>
         props.isSelected &&
@@ -23,15 +23,12 @@ let InfoContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-
+    
 `;
 let Detail = styled.div`
 
 border-top: 1px solid black;
 text-align: left;
-
-
-
 
 `
 
@@ -46,6 +43,9 @@ function CityInfo(props) {
         } else {
             setSelectedIdx(idx); 
         }
+
+        
+
     };
 
     return (
@@ -54,7 +54,7 @@ function CityInfo(props) {
                 if (props.nation === a.nat) {
                     return (
                         <CityIfBox isSelected={idx === selectedIdx}
-                        onClick={() => handleBoxClick(idx)}
+                        onClick={() => {handleBoxClick(idx); props.setCity(a.city)}}
                         key={idx}>
                             <h3>{a.city}</h3>
                             <Detail>

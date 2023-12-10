@@ -81,9 +81,9 @@ function Banner(){
         <BannerDiv>
             <CityDiv>
                 {
-                    citydata.map((citydata)=>{
+                    citydata.map((citydata,id)=>{
                         return(
-                            <BannerInnerDiv>
+                            <BannerInnerDiv key={id}>
                                 <BannerImg src={citydata.src}/>
                                 <div>{citydata.name}(도시)</div>
                             </BannerInnerDiv>
@@ -93,9 +93,9 @@ function Banner(){
             </CityDiv>
             <PlaceDiv>
                 {
-                    placedata.map((placedata)=>{
+                    placedata.map((placedata,id)=>{
                         return(
-                            <BannerInnerDiv>
+                            <BannerInnerDiv key={id}>
                                 <BannerImg src={placedata.src}/>
                                 <div>{placedata.name}(장소)</div>
                             </BannerInnerDiv>

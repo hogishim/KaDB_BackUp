@@ -53,7 +53,6 @@ function Login(){
         .catch((error)=>{
             console.log('login axios post 에러 : ' + error)
             alert("로그인 실패")
-            window.location.replace("/login")
         })
     }
     return(
