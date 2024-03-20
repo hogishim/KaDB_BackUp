@@ -3,7 +3,7 @@ import PopularBlogList from "./PopularBlogList";
 
 const Container = styled.div`
   width: calc(100vw - 7rem);
-  height: 50vh;
+  height: 60vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,7 +23,7 @@ const PopularPostTitle = styled.div`
 
 const PopularPostsBox = styled.div`
   width: 70vw;
-  height: 30vh;
+  height: 40vh;
   background-color: #ffffff;
   border-radius: 5px;
   flex: 1;
@@ -35,7 +35,7 @@ const PopularPostsBox = styled.div`
 `;
 
 const BlogListBox = styled.div`
-  height: 30vh;
+  height: 50vh;
   width: 70vw;
 `;
 

@@ -25,8 +25,8 @@ const LoginLogo = styled.img`
     height : 15rem;
     margin-bottom : 3rem;
 `
-const LoginFP = styled.a`
-    width: 28rem;
+const LoginFP = styled.div`
+    width: 27rem;
     color : white;
     margin-bottom:1rem;
 `
@@ -60,8 +60,9 @@ function Login(){
             <LoginLogo src={logoIcon}/>
             <InputBox src={IDIcon} text="ID" type="text" setValue={setId}/>
             <InputBox src={passwordIcon} text="PASSWORD" type="password" setValue={setPassword}/>
-            <LoginFP>Forgot Password?</LoginFP>
             <Button text="LOGIN" onClick={()=>{postlogin(id, password)}}/>
+            <LoginFP onClick={()=>{navigator(`/pwresetl`)}}>Forgot Password?</LoginFP>
+            <LoginFP onClick={()=>{navigator(`/signup`)}}>회원가입 하러가기</LoginFP>
         </LoginDiv>
     )
 }

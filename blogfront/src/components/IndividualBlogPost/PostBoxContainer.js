@@ -1,36 +1,42 @@
-import styled from 'styled-components'
-import data from './TempData'
+import styled from "styled-components";
+import GlobalStyle from "../Fonts/GlobalStyle";
+import ImageSlide from "./ImageSlide";
 
 const PostBox = styled.div`
+
+  width: 70vw;
   margin-top: 20px;
-  background-color: #F2F2F2;
-  margin-left: 20px;
-  border-radius: 10px;
-  margin: 20px 20px;
-  padding: 10px 10px;
+  background-color: #f2f2f2;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const PostBoxTitle = styled.div`
-  font-family: KakaoBold;
-  font-size: 12pt;
+  display: flex;
+  height: 5vh;
+  width: 65vw;
+  align-items: center;
+  font-family: 'kakao';
+  font-size: 3vh;
   font-weight: bold;
-  margin-left: 20px;
-  margin-top: 20px;
-  margin: 20px 22px;
+
 `;
 
 const PostItemBox = styled.div`
-  background-color: #FFFFFF;
-  margin-left: 20px;
-  margin-top: 20px;
-  margin: 20px 20px;
+  background-color: #ffffff;
   border-radius: 10px;
-  padding: 10px 10px;
+  width: 65vw;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const PostItemTitle = styled.div`
-  font-family: KakaoBold;
-  font-size: 12pt;
+  font-family: 'kakao';
+  font-size: 2.5vh;
   font-weight: bold;
   margin-left: 20px;
   margin-top: 10px;
@@ -38,21 +44,17 @@ const PostItemTitle = styled.div`
 `;
 
 const PostItem = styled.div`
-  font-family: KakaoRegular;
-  font-size: 10pt;
+  font-family: 'kakao';
+  font-size: 2vh;
   color: #000000;
   margin-left: 20px;
   margin: 20px 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
-const PostItemImage = styled.img`
-  width: 200px;
-  height: 150px;
-  margin-top: 20px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-`;
+
 
 const SummaryItem = styled.div`
   font-family: KakaoBold;
@@ -64,15 +66,16 @@ const SummaryItem = styled.div`
 `;
 
 const Tags = styled.div`
+  width: 65vw;
+  height: 7vh;
   display: flex;
-  margin-top: 20px;
-  margin-left: 20px;
   flex-direction: row;
-  margin: 10px 20px;
+  align-items: center;
+  
 `;
 
 const TagBox = styled.div`
-  background-color: #1EFFF1;
+  background-color: #1efff1;
   color: #000000;
   font-family: KakaoRegular;
   font-size: 10pt;
@@ -81,42 +84,70 @@ const TagBox = styled.div`
   margin-left: 10px;
 `;
 
+function PostBoxContainer(props) {
 
-
-function PostBoxContainer() {
 
   return (
-
-    data.map(function(a){
-
-      return(
+    <>
+      <GlobalStyle />
       <PostBox>
-      <PostBoxTitle>1일차 인천 - 런던</PostBoxTitle>
-      <PostItemBox>
-        <PostItemTitle>{a.place}</PostItemTitle>
-        <PostItem>{a.text}</PostItem>
-        <PostItemImage src="Incheon.jpg" alt="Incheon" />
-      </PostItemBox>
-      <SummaryItem>대한항공 / 13시간 소요 / 비용 1,400,000원</SummaryItem>
-      <Tags>
-        <TagBox>#런던</TagBox>
-        <TagBox>#공항</TagBox>
-      </Tags>
-    </PostBox>
+        {props.data.map((a, i) => {
+
+          return (
+            <>
+              <PostBoxTitle>{i + 1}일차 - {a.city}</PostBoxTitle>
+              {a.paragraph.map((b, k) => {
+                return (
+                  <>
+
+                    <PostItemBox>
+                      <ImageSlide images={b.images}/>
+                      <PostItemTitle>{b.place}</PostItemTitle>
+                      <PostItem>{b.text}</PostItem>
+                    </PostItemBox>
+                    <Tags>
+                      {b.tags.map((c, l) => {
+
+                        return (
+
+                          <TagBox>{c}</TagBox>
+
+                        )
+
+                      })}
+                    </Tags>
+
+                    {b.transports.map((d, m) => {
+                      return (
+                        <SummaryItem>&#8595;&nbsp;
+                          {d.transport} &#8739;&nbsp;
+                          {d.transport_name} &#8739;&nbsp;
+                          {d.money} &#8739;&nbsp;
+                          {d.time}
+                        </SummaryItem>
+                      )
+
+                    })}
 
 
-      )
-
-    })
-
+                  </>
+                )
 
 
+              })}
+
+            </>
+          )
+
+        })}
 
 
+
+      </PostBox>
+    </>
 
 
   )
-
 
 
 }

@@ -1,7 +1,6 @@
-import styled from 'styled-components'
-import data from './TempData'
-import GlobalStyle from '../Fonts/GlobalStyle';
-
+import styled from "styled-components";
+import data from "./TempData";
+import GlobalStyle from "../Fonts/GlobalStyle";
 
 const PostBox = styled.div`
   width: 61vw;
@@ -15,41 +14,30 @@ const PostBox = styled.div`
 `;
 
 const TitleBox = styled.div`
-
-width: 55vw;
-font-family: "kakao";
-
-
-`
+  width: 55vw;
+  font-family: "kakao";
+`;
 
 const PostItemBox = styled.div`
-
   width: 55vw;
   height: 20vh;
   display: flex;
   flex-direction: row;
-  background-color: #B4BFFF;
+  background-color: #b4bfff;
   border-radius: 10px;
-  
-
 `;
 
 const ImgBox = styled.div`
-
-width: 15vw;
-height: 20vh;
-display: flex;
-align-items: center;
-justify-content: center;
-
-
-`
+  width: 15vw;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 const PostItemimage = styled.img`
-  
   height: 15vh;
   width: auto;
-
 `;
 
 const PostItems = styled.div`
@@ -59,72 +47,54 @@ const PostItems = styled.div`
   height: 20vh;
   justify-content: center;
   align-items: start;
-  font-family: "kakao"
+  font-family: "kakao";
 `;
 
 const PostItemTitle = styled.div`
   font-family: "kakaobold";
   font-size: 3vh;
   font-weight: bold;
-
 `;
 
 const PostItem = styled.div`
   font-family: "kakao";
   font-size: 2vh;
   color: #000000;
-  
 `;
 
 const SummaryItem = styled.div`
-width:55vw;
-display: flex;
-align-items: center;
-justify-content: center;
-height: 3vh;
+  width: 55vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3vh;
   font-family: KakaoBold;
   font-size: 10pt;
   color: #000000;
   font-weight: bold;
-
-  `;
-
-
-
+`;
 
 function RouteBox() {
-
   const group = data.reduce((a, i) => {
-
     const key = i.date;
 
     if (!a[key]) {
-
-      a[key] = []
-
-
+      a[key] = [];
     }
 
-    a[key].push(i)
+    a[key].push(i);
 
     return a;
+  }, {});
 
-
-  }, {})
-
-  const render = Object.entries(group).map(([a, i]) => (
+  const render = Object.entries(group).map(([a, i], x) => (
     <>
       <GlobalStyle />
       <PostBox key={a}>
-
-        <TitleBox>
-          {a}일차
-        </TitleBox>
-        {i.map((a) => (
-
+        <TitleBox>{a}일차</TitleBox>
+        {i.map((a, y) => (
           <>
-            
-            <SummaryItem>&#8595;{a.transport}</SummaryItem>
+            {(x !== 0 || y !== 0) && <SummaryItem>&#8595;{a.transport}</SummaryItem>}
             <PostItemBox>
               <ImgBox>
                 <PostItemimage src={a.img} alt="Incheon" />
@@ -135,19 +105,12 @@ function RouteBox() {
                 <PostItem>예상 소요 비용: &#8361; {a.budget}</PostItem>
               </PostItems>
             </PostItemBox>
-
           </>
         ))}
-
-
       </PostBox>
-
     </>
-
-  ))
-
+  ));
 
   return <>{render}</>;
-
 }
 export default RouteBox;

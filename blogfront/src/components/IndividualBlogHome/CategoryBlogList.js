@@ -1,5 +1,7 @@
+import { GlobalOutlined } from '@ant-design/icons';
 import postlist from './TempPostName'
 import styled from 'styled-components'
+import GlobalStyle from '../Fonts/GlobalStyle';
 
 const PostItem = styled.div`
 display: flex;
@@ -7,8 +9,8 @@ flex-direction: column;
 align-item: center;
 justify-content: center;
 width: 70%;
-  font-size: 9pt;
-  font-family: KakaoRegular;
+  font-size: 11pt;
+  font-family: 'kakao';
   margin: 20px;
 `;
 
@@ -29,7 +31,8 @@ function CategoryBlogList(props) {
             if(a.category == props.category){
 
             return (
-
+                <>
+        <GlobalStyle />
                 <PostItem>
                     
                     <P>{a.date} </P>
@@ -37,6 +40,7 @@ function CategoryBlogList(props) {
 
                 </PostItem>
 
+</>
             )
 
             }

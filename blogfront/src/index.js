@@ -8,6 +8,7 @@ import SignUp from './components/SignUp/Integrated';
 import Main from './components/Main/Integrated';
 import BlogList from './components/BlogList/Integrated';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import 'antd/dist/antd'
 
 import PWResetL from './components/PWResetL/Integrated';
 import Individual from './components/Individual/Integrated';
@@ -33,6 +34,7 @@ root.render(
       {/* NavBar 필요 있는 것들 */}
       <Routes>
         <Route path="/" element={<App />}>
+          <Route index element={<Main />} />
           <Route path="main" element={<Main/>}/>
           <Route path="bloglist" element={<BlogList/>}/>
           <Route path="individual" element={<Individual/>}/>

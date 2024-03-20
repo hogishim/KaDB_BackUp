@@ -1,12 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 import AddCity from "../EnrollPost/AddCity/Integrated";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AddPlace from "../EnrollPost/AddPlace/Integrated";
 import AddTransport from "../EnrollPost/AddTransport/Integrated";
+import AddImage from '../EnrollPost/AddImage/Integrated'
 import CategorySelector from "./CategorySelector";
 import PostInput from "./PostBox";
 import TitleBox from "./TitleBox";
+import img from "../RouteView/Source/backimg.png";
+import { SaveOutlined } from "@ant-design/icons";
+import { Button } from "antd";
+import GlobalStyle from "../Fonts/GlobalStyle";
+import AddTag from '../EnrollPost/AddTag/Integrated'
 
 const Container = styled.div`
   height: 100vh;
@@ -14,7 +20,10 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   display: flex;
-  background-color: #cf6e36;
+  background-image: url(${img});
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
 `;
 
 const PostTitle = styled.div`
@@ -33,7 +42,7 @@ const Postcontainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column; 
+  flex-direction: column;
 `;
 
 const Posts = styled.div`
@@ -45,6 +54,7 @@ const Posts = styled.div`
   align-items: center;
   justify-content: center;
   padding-top: 20px;
+  padding: 20px;
 `;
 
 const PostBox = styled.div`
@@ -67,19 +77,6 @@ const PostBoxTitle = styled.div`
   margin-bottom: 10px;
 `;
 
-const SaveButton = styled.button`
-  background-color: #fbfb49;
-  color: #000000;
-  border-radius: 50px;
-  padding: 10px;
-  width: 5rem;
-  height: 35px;
-  font-family: KakaoBold;
-  font-size: 10pt;
-  font-weight: bold;
-  border: none;
-`;
-
 const PostItemBox = styled.div`
   width: 65vw;
   display: flex;
@@ -97,31 +94,6 @@ const Manages = styled.div`
   flex-direction: row;
   justify-content: center;
   margin-bottom: 15px;
-`;
-
-const TagButton = styled.button`
-  background-color: #1efff1;
-  color: #000000;
-  font-family: KakaoBold;
-  font-weight: bold;
-  font-size: 10pt;
-  padding: 10px 20px;
-  border-radius: 50px;
-  margin-left: 20px;
-  border: none;
-`;
-
-const ManageButton = styled.button`
-  background-color: #fbfb49;
-  color: #000000;
-  font-family: KakaoBold;
-  font-weight: bold;
-  font-size: 10pt;
-  width: 8rem;
-  padding: 14px;
-  border: none;
-  border-radius: 50px;
-  margin-left: 10px;
 `;
 
 const AddButton = styled.button`
@@ -150,32 +122,70 @@ const HeaderBox = styled.div`
 `;
 
 const PostButton = styled.div`
-
-display: flex;
-flex-direction: row;
-width: 75vw;
-align-items: center;
-justify-content: center;
-
-
-`
+  display: flex;
+  flex-direction: row;
+  width: 75vw;
+  align-items: center;
+  justify-content: center;
+`;
 const EmptyBox = styled.div`
+  width: 15vw;
+`;
 
-width: 15vw;
+const TagButton = styled(Button)`
+  background-color: #a2e1db;
+  color: #000000;
+  font-family: "kakao";
+  height: 3rem;
+  width: 10rem;
+  font-size: 10pt;
+  border-radius: 50px;
+  margin-left: 20px;
+  border: none;
+`;
 
-
-`
+const ManageButton = styled(Button)`
+  background-color: #f3b0c3;
+  color: #000000;
+  font-family: "kakao";
+  height: 3rem;
+  width: 10rem;
+  font-size: 10pt;
+  border-radius: 50px;
+  margin-left: 20px;
+  border: none;
+`;
+const ImageButton = styled(Button)`
+  background-color: #cbaacb;
+  color: #000000;
+  font-family: "kakao";
+  height: 3rem;
+  width: 10rem;
+  font-size: 10pt;
+  border-radius: 50px;
+  margin-left: 20px;
+  border: none;
+`;
 
 function ManagePost() {
 
   const [click, setClick] = useState(false);
   const [click2, setClick2] = useState(false);
   const [click3, setClick3] = useState(false);
-  const [container, SetContainer] = useState([{ city: "", }]);
-  const [place, setPl] = useState("")
-  const [cty, setCty] = useState("")
+  const [click4, setClick4] = useState(false);
+  const [click5, setClick5] = useState(false);
+  const [place, setPl] = useState("");
+  const [cty, setCty] = useState("");
   const [index1, setIndex1] = useState();
   const [index2, setIndex2] = useState();
+  const [selectCate, setSelectCate] = useState(); //카테고리 값 저장
+  const [tit, setTit] = useState() //제목 값 저장
+  const [date, setDate] = useState([
+    {
+      city: "",
+      paragraph: [],
+    },
+  ]); //일자별 데이터 저장
 
   const closeWindow = (val) => {
     setClick(val);
@@ -187,90 +197,140 @@ function ManagePost() {
   const closeWindow3 = (val) => {
     setClick3(val);
   };
+  const closeWindow4 = (val) => {
+    setClick4(val)
+  }
+  const closeWindow5 = (val) => {
+    setClick5(val)
+  }
 
+  const setCategory = (val) => {
+    setSelectCate(val);
+  }
+
+  const setTitle = (val) => {
+    setTit(val);
+  }
+
+
+  useEffect(() => {
+    console.log("paragraph[0]:", date[0]?.paragraph);
+  }, [date])
 
   return (
-
     <Container>
-      <CategorySelector />
-      <TitleBox />
-
+      <GlobalStyle />
+      <CategorySelector setCategory={setCategory} />
+      <TitleBox setTitle={setTitle} />
       <PostTitle>POST</PostTitle>
 
-      {container.map(function (c, i) {
+      {date.map(function (c, i) {
         return (
           <Postcontainer>
             <Posts>
               <PostBox>
                 <HeaderBox>
-                  <PostBoxTitle>{i + 1}일차 {c.city}</PostBoxTitle>
-                  <SaveButton>저장</SaveButton>
+                  <PostBoxTitle>
+                    {i + 1}일차 {c.city}
+                  </PostBoxTitle>
+                  <Button
+                    shape="circle"
+                    type="primary"
+                    icon={<SaveOutlined />}
+                  />
                 </HeaderBox>
 
-                {Array.isArray(c.place) && c.place.map((p, k) => {
-                  return (
-                    <div key={k}>
-                      <PostItemBox>
-                        <PlaceTitle>{p.p}</PlaceTitle>
-                        <PostInput />
-                      </PostItemBox>
-                    </div>
-                  );
-                })}
+                {Array.isArray(c.paragraph) &&
+                  c.paragraph.map((p, k) => {
+                    return (
+                      <div key={k}>
+                        <PostItemBox>
+                          <PlaceTitle>{p.place}</PlaceTitle>
+                          <PostInput onchange={(val)=>{
+
+                            p.text = val;
+                           
+
+
+                          }}/>
+                        </PostItemBox>
+                      </div>
+                    );
+                  })}
 
                 <Manages>
-                  <TagButton>#태그 추가</TagButton>
-                  <ManageButton
+                  <TagButton
                     onClick={() => {
-                      setClick3(true);
+                      setClick5(true);
                       setClick(false);
+                      setClick3(false);
+                      setClick4(false);
                       setClick2(false);
+                      setIndex2(i);
                     }}
-                  >이동수단 추가</ManageButton>
+
+                  ># 태그 추가하기</TagButton>
                   <ManageButton
                     onClick={() => {
                       setClick2(true);
                       setClick(false);
                       setClick3(false);
-                      setIndex2(i)
+                      setClick4(false);
+                      setClick5(false);
+                      setIndex2(i);
                     }}
-                  >장소 추가</ManageButton>
+                  >
+                    장소 추가
+                  </ManageButton>
 
                   <ManageButton
-                    onClick={()=>{
+                    onClick={() => {
+                      const newContainer = [...date];
 
-                      const newContainer = [...container]
-
-                      if(place.length > 0){
-                      newContainer[i].place.splice(newContainer[i].place.length -1, 1)
+                      if (c.paragraph.length > 0) {
+                        newContainer[i].paragraph.splice(
+                          newContainer[i].paragraph.length - 1,
+                          1
+                        );
                       }
-                      SetContainer(newContainer)
-
-
+                      setDate(newContainer)
                     }}
                   >
                     장소 삭제
                   </ManageButton>
+
+                  <ManageButton
+                    onClick={() => {
+                      setClick3(true);
+                      setClick(false);
+                      setClick2(false);
+                      setClick4(false);
+                      setClick5(false);
+                    }}
+                  >이동수단 추가</ManageButton>
+                  <ImageButton onClick={() => {
+                    setClick(false);
+                    setClick2(false);
+                    setClick3(false);
+                    setClick4(true);
+                    setClick5(false);
+                    setIndex1(i);
+                  }}>이미지 추가하기</ImageButton>
+
                 </Manages>
               </PostBox>
 
               {click && (
                 <AddCity
                   closeWindow={closeWindow}
-
                   setCity={(val) => {
-
                     const cit = val;
-                    setCty(cit)
-
-
+                    setCty(cit);
                   }}
-
                   addContainer={() => {
-                    const newItem = { city: "" }
-                    newItem.city = cty;
+                    const newItem = { city: cty };
 
-                    SetContainer((prev) => {
+                    setDate((prev) => {
                       const updatedContainer = [
                         ...prev.slice(0, index1 + 1),
                         newItem,
@@ -278,64 +338,111 @@ function ManagePost() {
                       ];
                       return updatedContainer;
                     });
-
                   }}
-
                 />
               )}
               {click2 && (
-                <AddPlace closeWindow2={closeWindow2} addBox={() => {
+                <AddPlace
+                  setPlace={(val) => {
+                    setPl(val);
+                  }}
+                  closeWindow2={closeWindow2}
+                  addBox={() => {
 
-                  const newPlace = { p: place }
+                    const newPlace = {
+                      paragraph: [
+                        {
+                          place: place,
+                          text: '',
+                          images: [],
+                          tags: [],
+                          transports: [],
+                        },
+                      ],
+                    };
 
-                  const newContainer = [...container]
+                    const newContainer = [...date];
+                    if (!newContainer[index2]?.paragraph) {
+                      newContainer[index2].paragraph = [];
+                    }
+                    newContainer[index2].paragraph.push({ ...newPlace.paragraph[0] });
+                    setDate(newContainer);
 
-                  if (newContainer[index2]?.place) {
-                    newContainer[index2].place.push(newPlace);
-                  } else {
-
-                    newContainer[index2].place = [newPlace];
-                  }
-
-
-                  SetContainer(newContainer)
-
-                }
-
-                } setPlace={(val) => {
-
-                  const p = val;
-                  setPl(p)
-
-                }} />
+                  }}
+                />
               )}
-              {click3 && <AddTransport closeWindow3={closeWindow3} />}
+              {click5 && <AddTag
+                closeWindow5={closeWindow5}
+                addTag={(tag) => {
+                  const tagsArray = tag.split(' ');
+
+                  setDate((prevDate) => {
+                    const lastIndex = prevDate[index2]?.paragraph.length - 1;
+                    return prevDate.map((day, index) => {
+                      if (index === index2 && day.paragraph[lastIndex]) {
+                        day.paragraph[lastIndex].tags = tagsArray;
+                      }
+                      return day;
+                    });
+                  });
+                }}
+              />}
+              {click4 && <AddImage closeWindow4={closeWindow4} />}
+              {click3 && (
+                <AddTransport
+                  closeWindow3={closeWindow3}
+                  addTransport={(newTransport) => {
+                    setDate((prevDate) => {
+                      const lastIndex = prevDate[index2]?.paragraph.length - 1;
+
+                      if (lastIndex !== undefined && prevDate[index2]?.paragraph[lastIndex]) {
+                        const currentTransports = prevDate[index2].paragraph[lastIndex].transports || [];
+                        return prevDate.map((day, index) =>
+                          index === index2
+                            ? {
+                              ...day,
+                              paragraph: day.paragraph.map((paragraph, paragraphIndex) =>
+                                paragraphIndex === lastIndex
+                                  ? {
+                                    ...paragraph,
+                                    transports: [...currentTransports, newTransport],
+                                  }
+                                  : paragraph
+                              ),
+                            }
+                            : day
+                        );
+                      }
+                      return prevDate;
+                    });
+                  }}
+                />
+              )}
+
             </Posts>
             <PostButton>
-
               <AddButton
                 onClick={() => {
                   setClick(true);
                   setClick2(false);
                   setClick3(false);
-                  setIndex1(i)
-                }}>
-                일정 추가하기</AddButton>
+                  setClick4(false);
+                  setClick5(false);
+                  setIndex1(i);
+                }}
+              >일정 추가하기</AddButton>
 
               <EmptyBox />
 
-              <AddButton onClick={() => {
-
-                const newContainer = [...container]
-                newContainer.splice(i, 1)
-                SetContainer(newContainer)
-
-              }}>일정 제거하기</AddButton>
-
+              <AddButton
+                onClick={() => {
+                  const newContainer = [...date];
+                  newContainer.splice(i, 1);
+                  setDate(newContainer);
+                }}
+              >일정 제거하기</AddButton>
             </PostButton>
-
           </Postcontainer>
-
         );
       })}
     </Container>

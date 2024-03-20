@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Header from "./Header";
 import RouteBox from "./RouteBox";
+import img from "../RouteView/Source/backimg.png"
 
 const Container = styled.div`
   display: flex;
@@ -10,6 +11,10 @@ const Container = styled.div`
   background-color: #cf6e36;
   align-items: center;
   min-height: 100vh;
+  background-image: url(${img});
+  background-size: cover;
+  background-position: center center; 
+  background-attachment: fixed;
 `;
 
 const Posts = styled.div`

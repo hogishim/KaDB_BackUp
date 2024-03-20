@@ -56,7 +56,51 @@ align-items: center;
 `
 
 function PlacePopUp(props) {
+    
+    const [transport, setTransport] = useState({transport: "", transport_name: "", money: "", time: ""})
 
+    const getType = (val)=>{
+
+        setTransport((prevTransport) => ({
+            ...prevTransport,
+            transport: val,
+          }));
+        
+
+
+    }
+
+    const getName =(val) =>{
+
+        setTransport((prevTransport)=>({
+            ...prevTransport, 
+            transport_name: val,
+
+        }))
+        
+
+    }
+
+    const getTime = (val) =>{
+
+        setTransport((prevTransport)=>({
+                ...prevTransport, 
+                time: val, 
+
+        }))
+
+
+    }
+
+    const getBudget = (val) =>{
+
+        setTransport((prevTransport)=>({
+            ...prevTransport, 
+            money: val,
+
+        }))
+
+    }
 
 
     return (
@@ -68,14 +112,13 @@ function PlacePopUp(props) {
 
                 <ContentBox>
                     <ButtonBox>
-                        <ImageButton />
+                        <ImageButton sendType={getType}/>
                     </ButtonBox>
                 </ContentBox>
 
-                <InputContainer />
+                <InputContainer sendName={getName} sendTime={getTime} sendBudget={getBudget}/>
 
-                <Button onClick={() => 
-                    { props.closeWindow(false) }}>제출하기</Button>
+                <Button onClick={() =>{ props.closeWindow(false);  props.addTransport(transport)}}>제출하기</Button>
             </CityBox>
 
         </Container>

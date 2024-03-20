@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import category from './TempCategory'
 import CategoryBlogList from "./CategoryBlogList";
+import GlobalStyle from "../Fonts/GlobalStyle";
 
 
 const CategoryContainer = styled.div`
@@ -11,6 +12,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
+font-family: 'kakao'
 
 `
 
@@ -59,6 +61,7 @@ function CategoryBlog() {
 
     return (
         <CategoryContainer>
+          <GlobalStyle />
             <CategoryTitle>CATEGORY</CategoryTitle>
 
             <CategoryBox>

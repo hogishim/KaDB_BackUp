@@ -2,6 +2,7 @@
 import styled from 'styled-components'
 import Header from './Header'
 import InfoContainer from './InfoContainer';
+import img from '../RouteView/Source/backimg.png'
 
 const Container = styled.div`
 
@@ -9,7 +10,10 @@ const Container = styled.div`
   width: calc(100vw - 8.1rem);
   min-height: 100vh;
   flex-direction: column;
-  background-color: #CF6E36;
+  background-image: url(${img});
+  background-size: cover;
+  background-position: center center; 
+  background-attachment: fixed;
   
 
 `;

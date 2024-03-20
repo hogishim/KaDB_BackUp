@@ -13,7 +13,18 @@ const PostItem = styled.textarea`
   resize: none;
 `;
 
-function PostBox() {
-  return <PostItem type="text" />;
+function PostBox(props) {
+
+const handleChange = (e) =>{
+
+  const val = e.target.value
+props.onchange(val)
+console.log(val)
+
+}
+
+
+
+  return <PostItem type="text" onChange={handleChange}/>;
 }
 export default PostBox;

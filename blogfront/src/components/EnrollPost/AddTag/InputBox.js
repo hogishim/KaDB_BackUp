@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 let Input = styled.input`
 
-width: 20rem;
-height: 3.8vh;
+width: 30vw;
+height: 10vh;
 margin-bottom: 1rem;
 border: 0px;
 border-radius: 10px;

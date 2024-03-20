@@ -30,13 +30,18 @@ text-align: start;
 const ScheduleBox = styled.div`
   background-color: #FFFFFF;
   color: #000000;
-  padding: 20px 100px;
+  width: 30vw;
+  height: 6vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50px;
   margin: 20px 10px;
   font-family: KakaoBold;
   font-size: 10pt;
   font-weight: bold;
   margin-left: 80px;
+  box-shadow: 5px 5px 5px 5px grey;
 `;
 
 const Copybutton = styled.button`
@@ -53,13 +58,37 @@ const Copybutton = styled.button`
   right: 90px;
 `;
 
-function TitleBoxContainer() {
+const CatBox = styled.div`
+  background-color: #FFFFFF;
+  color: #000000;
+  width: 10vw;
+  height: 6vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  margin: 20px 10px;
+  font-family: KakaoBold;
+  font-size: 10pt;
+  font-weight: bold;
+  margin-left: 80px;
+  box-shadow: 5px 5px 5px 5px grey;
+`;
+
+
+function TitleBoxContainer(props) {
   return (
     <Container>
+      <ScheduleTitle>CATEGORY</ScheduleTitle>
+      <Schedule>
+        <CatBox>
+          {props.category}
+        </CatBox>
+      </Schedule>
       <ScheduleTitle>SCHEDULE</ScheduleTitle>
       <Schedule>
         <ScheduleBox>
-          Europe 2019.07.07 ~ 2019.08.13 영국 아일랜드 프랑스 스위스 오스트리아 체코
+          {props.title}
         </ScheduleBox>
         <Copybutton>일정 복사하기</Copybutton>
       </Schedule>

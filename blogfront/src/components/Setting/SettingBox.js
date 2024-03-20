@@ -1,6 +1,7 @@
 import ClickSetting from './ClickSetting';
 import styled from 'styled-components'
 import img1 from './Source/bgimg.png'
+import GlobalStyle from '../Fonts/GlobalStyle'
 
 let Container = styled.div`
 
@@ -10,7 +11,8 @@ let Container = styled.div`
     height: 100vh;
     width: calc(100vw - 7rem);
     background-image: url(${img1});
-    background-size: cover; 
+    background-size: cover;
+    font-family: "kakao"; 
 
 
 `
@@ -35,6 +37,7 @@ function SettingBox() {
     return (
 
         <>
+        <GlobalStyle />
             <Container>
                 {/* setting할 수 있는 메뉴를 불러오는데 props를 이용하여 설정 */}
                 <ContainerBox>

@@ -37,7 +37,7 @@ const InfoBox = styled.div`
 height: 25vh;
 width: 17vw;
 background-color: #FFDB31;
-border-radius: 20%;
+border-radius: 20px;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -199,6 +199,7 @@ function Header() {
             팔로우하기
           </FollowButton>
         </ButtonContainer>
+        
 
       </InfoContainer>
     </Container>

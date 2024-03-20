@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useState } from "react";
 
 const Categories = styled.div`
   display: flex;
@@ -7,16 +8,16 @@ const Categories = styled.div`
 `;
 
 const CategoryHeader = styled.div`
-font-size: 12pt;
-font-family: KakaoBold;
-color: #FFFFFF;
-margin-left: 60px;
-margin-top: 25px;
+  font-size: 12pt;
+  font-family: KakaoBold;
+  color: #ffffff;
+  margin-left: 60px;
+  margin-top: 25px;
 `;
 
 const CategorySelect = styled.select`
   color: #000000;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   padding: 5px 10px;
   border: none;
   border-radius: 50px;
@@ -27,22 +28,23 @@ const CategorySelect = styled.select`
   font-size: 10pt;
 `;
 
+function CategorySelector(props) {
+  const cate = ["유럽여행", "아시아여행", "아메라카 여행", "국내여행"];
 
+  const handleChange =(e) =>{
 
+    const cat = e.target.value;
+    props.setCategory(cat);
 
-
-function CategorySelector() {
+  }
   return (
     <Categories>
-      <CategoryHeader>CATEGORY</CategoryHeader>
-      <CategorySelect>
-        <option>국내여행</option>
-        <option>유럽여행</option>
-        <option>아시아여행</option>
-        <option>아메리카여행</option>
-        <option>아프리카여행</option>
-        <option>오스트리아여행</option>
-        <option>남/북극여행</option>
+      <CategoryHeader >CATEGORY</CategoryHeader>
+      <CategorySelect onChange={handleChange}>
+        <option>---게시판을 선택해주세요---</option>
+        {cate.map((a) => {
+          return <option>{a}</option>;
+        })}
       </CategorySelect>
     </Categories>
   );

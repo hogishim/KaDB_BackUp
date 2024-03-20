@@ -5,7 +5,7 @@ function Integrated(props){
 
 
     return(
-    <CityPopUp closeWindow={props.closeWindow} addContainer={props.addContainer} setCity={props.setCity} />
+    <CityPopUp closeWindow={props.closeWindow} addContainer={props.addContainer} setCity={props.setCity}  />
     )
 
 

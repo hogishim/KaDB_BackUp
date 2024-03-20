@@ -33,7 +33,7 @@ let Container = styled.div`
   justify-content: center;  
 `;
 
-function ImageButton() {
+function ImageButton(props) {
   const t_list = [
     { name: "비행기", img: air },
     { name: "배", img: bot },
@@ -51,6 +51,7 @@ function ImageButton() {
 
   const handleItemClick = (index) => {
     setSelectedItem(index === selectedItem ? null : index);
+    props.sendType(index==selectedItem ? null : t_list[index].name);
   };
 
   return (
